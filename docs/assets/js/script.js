@@ -105,9 +105,8 @@ var onBtnClick = function ( t, opts ){
 					storage.setItem("attachmentName"+index,productCard.attachments[index].name)
 				}
 			}).done(window.open('docs/components/printProductCard.html','_blank'));
-			//});
 		});
-	});
+	});//t.card
 };
 
 window.TrelloPowerUp.initialize( {
