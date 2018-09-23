@@ -75,8 +75,7 @@ var onBtnClick = function ( t, opts ){
 			productCard.desc = productCard.desc.replace(/(<br>|<br \/>)/gi, '\n');
 			storage.setItem("description", productCard.desc);
 			Trello.get( `/boards/${productBoardInfo.id}/customFields` )
-			.then( function (customFields) {
-				.when(
+			.when( function (customFields) {
 					Trello.get( `/cards/${productCard.id}/customFieldItems` )
 					.then( function (customFieldItems){
 						for(index=0; index<customFieldItems.length; index++){
