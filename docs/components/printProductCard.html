@@ -1,0 +1,37 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
+	<link rel="stylesheet" href="../assets/css/print.min.css">
+  <link rel="stylesheet" href="../assets/css/printProductCard.css">
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <div class="container">
+    <div><span class="fontBold">商品名： </span><span id="product_name"></span></div>
+    <div><span class="fontBold">詳細： </span><span id="product_description"></span></div>
+    <div><span class="fontBold">原価： </span><span id="product_cost"></span>円</div>
+    <div><span class="fontBold">単価： </span><span id="product_unit_price"></span>円</div>
+    <div id=material>素材</div>
+    <table border="1" width="500" cellspacing="0" cellpadding="5" bordercolor="#333333" id="attachments">
+      <tr>
+        <th>商品名</th>
+        <th>職人名</th>
+        <th>希望価格</th>
+      </tr>
+    </table>
+  <script>
+    var elems = document.getElementsByTagName("tr");
+    var arr = jQuery.makeArray(elems);
+    arr.reverse();
+    $(arr).appendTo(document.body.table);
+  </script>
+  </div>
+
+
+<script src="https://p.trellocdn.com/power-up.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../assets/js/print.min.js"></script>
+<script src="https://api.trello.com/1/client.js?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e"></script>
+<script src="../assets/js/printProductCard.js"></script>
+</body>
+</html>

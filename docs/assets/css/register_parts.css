@@ -1,0 +1,35 @@
+#parts_content{
+  width: 50%;
+  margin: 0 25% 0 25%;
+  padding-top: 6%;
+}
+.left{
+  text-align: left;
+}
+button{
+  all: initial;
+}
+.right{
+  display: inherit;
+  margin-left: auto;
+}
+#parts_category_selector{
+  width: 50%;
+}
+#parts_title_input{
+  width: 50%;
+}
+#parts_artisan_input{
+  width: 50%;
+}
+#parts_price_input{
+  width: 20%;
+}
+#timeout{
+    position:absolute;
+    top:30px;
+    left:50px;
+    padding:20px;
+    border:1px solid #ddd;
+    background:#eee;
+}

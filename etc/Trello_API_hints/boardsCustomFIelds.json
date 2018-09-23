@@ -1,0 +1,132 @@
+// Product
+[
+  {
+    "id": "5b145988b769c1c764899401",
+    "idModel": "5b07aba0aca1e417fbf8a003",
+    "modelType": "board",
+    "fieldGroup": "37f94c8662d2310fb4b0de8d0ff3551f2d6b525d602335743c9a012b7481038d",
+    "display": {
+      "cardFront": true
+    },
+    "name": "作成日",
+    "pos": 114688,
+    "type": "date"
+  },
+  {
+    "id": "5b145a370e4ab3b0d82c7425",
+    "idModel": "5b07aba0aca1e417fbf8a003",
+    "modelType": "board",
+    "fieldGroup": "15fe1ff03ea52eb5112e7dbc88bbb7d4d986368893bf951845d28efcca4e9da2",
+    "display": {
+      "cardFront": true
+    },
+    "name": "単価",
+    "pos": 131072,
+    "type": "number"
+  },
+  {
+    "id": "5b145e11b3e5b6cef9642fcc",
+    "idModel": "5b07aba0aca1e417fbf8a003",
+    "modelType": "board",
+    "fieldGroup": "c6e064cab249c9a675fbfd89678be5a0cae39acf7b872b3bd7b423a17effae91",
+    "display": {
+      "cardFront": true
+    },
+    "name": "顧客名",
+    "pos": 147456,
+    "options": [
+      {
+        "id": "5b145e11b3e5b6cef9642fcd",
+        "idCustomField": "5b145e11b3e5b6cef9642fcc",
+        "value": {
+          "text": "ヤマト徽章株式会社"
+        },
+        "color": "none",
+        "pos": 16384
+      },
+      {
+        "id": "5b2fab8b5ecb151825f1d0b0",
+        "idCustomField": "5b145e11b3e5b6cef9642fcc",
+        "value": {
+          "text": "有限会社ほげ"
+        },
+        "color": "none",
+        "pos": 32768
+      }
+    ],
+    "type": "list"
+  }
+]
+
+
+// OrderMeta
+[
+  {
+    "id": "5b52b0f47fa81042ea6e384a",
+    "idModel": "5b07abd2282983c708812717",
+    "modelType": "board",
+    "fieldGroup": "4ab80351e531d40585f550b24b4db4a51f17c6b9d71c319c2774f33f0da3d6e3",
+    "display": {
+      "cardFront": true
+    },
+    "name": "数量",
+    "pos": 16384,
+    "type": "number"
+  },
+  {
+    "id": "5b52b0fb91ac0071b8e18ea5",
+    "idModel": "5b07abd2282983c708812717",
+    "modelType": "board",
+    "fieldGroup": "15fe1ff03ea52eb5112e7dbc88bbb7d4d986368893bf951845d28efcca4e9da2",
+    "display": {
+      "cardFront": true
+    },
+    "name": "単価",
+    "pos": 32768,
+    "type": "number"
+  },
+  {
+    "id": "5b52b282dd6e62dac6f3d65c",
+    "idModel": "5b07abd2282983c708812717",
+    "modelType": "board",
+    "fieldGroup": "c6e064cab249c9a675fbfd89678be5a0cae39acf7b872b3bd7b423a17effae91",
+    "display": {
+      "cardFront": true
+    },
+    "name": "顧客名",
+    "pos": 49152,
+    "options": [
+      {
+        "id": "5b52b282dd6e62dac6f3d65e",
+        "idCustomField": "5b52b282dd6e62dac6f3d65c",
+        "value": {
+          "text": "ヤマト徽章株式会社"
+        },
+        "color": "none",
+        "pos": 16384
+      },
+      {
+        "id": "5b52b282dd6e62dac6f3d65f",
+        "idCustomField": "5b52b282dd6e62dac6f3d65c",
+        "value": {
+          "text": "カタログ商品"
+        },
+        "color": "none",
+        "pos": 32768
+      }
+    ],
+    "type": "list"
+  },
+  {
+    "id": "5b52b282dd6e62dac6f3d660",
+    "idModel": "5b07abd2282983c708812717",
+    "modelType": "board",
+    "fieldGroup": "37f94c8662d2310fb4b0de8d0ff3551f2d6b525d602335743c9a012b7481038d",
+    "display": {
+      "cardFront": true
+    },
+    "name": "作成日",
+    "pos": 65536,
+    "type": "date"
+  }
+]

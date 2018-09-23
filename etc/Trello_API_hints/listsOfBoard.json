@@ -1,0 +1,34 @@
+[
+  {
+    "id": "5b07aba0aca1e417fbf8a004",
+    "name": "ヤマト徽章株式会社",
+    "closed": false,
+    "idBoard": "5b07aba0aca1e417fbf8a003",
+    "pos": 65535,
+    "subscribed": false
+  },
+  {
+    "id": "5b07aba0aca1e417fbf8a005",
+    "name": "有限会社ほげ",
+    "closed": false,
+    "idBoard": "5b07aba0aca1e417fbf8a003",
+    "pos": 131071,
+    "subscribed": false
+  },
+  {
+    "id": "5b3646cda67c414307f48516",
+    "name": "株式会社ほげ",
+    "closed": false,
+    "idBoard": "5b07aba0aca1e417fbf8a003",
+    "pos": 180223,
+    "subscribed": false
+  },
+  {
+    "id": "5b14bb6385d0e57970d84c7a",
+    "name": "カタログ製品",
+    "closed": false,
+    "idBoard": "5b07aba0aca1e417fbf8a003",
+    "pos": 229375,
+    "subscribed": false
+  }
+]

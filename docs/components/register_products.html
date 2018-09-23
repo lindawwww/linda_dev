@@ -1,0 +1,140 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
+	<link rel="stylesheet" href="../assets/css/print.min.css">
+	<link rel="stylesheet" href="../assets/css/inspirations.css">
+	<link rel="stylesheet" href="../assets/css/metamorph-core.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+	      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link href='https://cdn.jsdelivr.net/npm/boxicons@1.7.1/css/boxicons.min.css' rel='stylesheet'>
+
+	<style>
+		body {
+			margin : 0;
+		}
+
+		select {
+			height : 30px;
+		}
+
+		input.search-by-date-input {
+			display : inline;
+			width   : 110px;
+		}
+
+		input.search-by-word-input {
+		}
+
+		.tooltip {
+			position : relative;
+		}
+
+		.tooltip::before,
+		.tooltip::after {
+			position : absolute;
+			/*transition: all 0.3s ease 0s;*/
+			opacity  : 0;
+		}
+
+		.tooltip::before {
+			content             : "";
+			border              : 10px solid transparent;
+			border-bottom-color : #000;
+			top                 : 10px;
+			left                : 10px;
+		}
+
+		.tooltip::after {
+			content       : attr(data-tooltip);
+			display       : block;
+			padding       : 20px;
+			background    : #000;
+			color         : #fff;
+			border-radius : 5px;
+			top           : 30px;
+			left          : 0;
+			width         : 210px;
+		}
+
+		.tooltip:hover::before {
+			top     : 16px;
+			opacity : 1;
+		}
+
+		.tooltip:hover::after {
+			top     : 36px;
+			opacity : 1;
+		}
+
+		#search_product_wrapper {
+			width: 315px
+		}
+
+		#embedded-card {
+			background-image: url("../assets/image/spinner.gif");
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+
+		.add-ordermeta-form {
+			text-align : right;
+		}
+
+		label.product_units_input_label {
+			display: inline-block;
+			margin-right: 10px;
+		}
+
+		input.product_units_input {
+			width: 50px;
+			display: inline-block;
+			margin-right: 20px;
+		}
+	</style>
+</head>
+<body>
+
+<div id="search_product_wrapper">
+
+	<form id="search_product">
+		<label>
+			日付で検索する:
+		</label>
+		<input type="text" name="search_by_date_start" id="search_by_date_start_input" class="search-by-date-input"/>
+		<span>〜</span>
+		<input type="text" name="search_by_date_end" id="search_by_date_end_input" class="search-by-date-input"/>
+
+		<label for="search_by_word_input">キーワードで検索する:</label>
+		<input type="text" name="search_by_word" id="search_by_word_input" class="search-by-word-input"/>
+
+		<button type="submit" class="btn-add mod-primary">Search</button>
+	</form>
+
+	<div id="search_result">
+	</div>
+
+	<!-- <div id="showing">
+		<p>Showing <strong id="show-more-showing-number" class="showing">0</strong> of <strong
+				id="show-more-total-number" class="total">0</strong> boards</p>
+		<div id="progress">
+			<div id="bar" style="width: 0%;"></div>
+		</div>
+		<a class="global-header-section-button show-more js-show-more">Show more</a>
+	</div> -->
+
+	<div id="no_results" class="hidden">
+		<h3>検索結果がみつかりませんでした。</h3>
+		<button type="button" class="clear mod-danger js-clear-search-query">条件をクリア</button>
+	</div>
+
+</div>
+
+<script src="https://p.trellocdn.com/embed.min.js"></script>
+<script src="https://p.trellocdn.com/power-up.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../assets/js/print.min.js"></script>
+<script src="https://api.trello.com/1/client.js?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e"></script>
+<script src="https://p.trellocdn.com/embed.min.js"></script>
+<script src="../assets/js/register_products.js"></script>
+</body>
+</html>

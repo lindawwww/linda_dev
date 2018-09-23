@@ -1,0 +1,31 @@
+// Products Card
+[
+  // 顧客名
+  {
+    "id": "5b2c7d0966dd99841f90705f",
+    "idValue": "5b145e11b3e5b6cef9642fcd",
+    "idCustomField": "5b145e11b3e5b6cef9642fcc",
+    "idModel": "5b2c7d0866dd99841f907034",
+    "modelType": "card"
+  },
+  // 単価
+  {
+    "id": "5b2c7d0966dd99841f907063",
+    "value": {
+      "number": "1800"
+    },
+    "idCustomField": "5b145a370e4ab3b0d82c7425",
+    "idModel": "5b2c7d0866dd99841f907034",
+    "modelType": "card"
+  },
+  // 作成日
+  {
+    "id": "5b2c7d0966dd99841f907065",
+    "value": {
+      "date": "2018-06-04T03:00:00.000Z"
+    },
+    "idCustomField": "5b145988b769c1c764899401",
+    "idModel": "5b2c7d0866dd99841f907034",
+    "modelType": "card"
+  }
+]

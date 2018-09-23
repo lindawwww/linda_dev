@@ -1,0 +1,49 @@
+#showing {
+  display : none;
+  text-align       : center;
+}
+#showing #progress {
+  background-color : #e2e4e6;
+  border-radius    : 2.5px;
+  height           : 5px;
+  margin           : 17px auto 20px;
+  width            : 200px;
+}
+
+#showing #progress #bar {
+  background-color: #5ba4cf;
+  border-radius: 2.5px;
+  height: 5px;
+  -webkit-transition: width .5s;
+  transition: width .5s;
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-timing-function: initial;
+  transition-delay: initial;
+}
+
+#showing a.show-more {
+  display: inline-block;
+}
+
+#showing a {
+  cursor: pointer;
+  margin: 0;
+}
+
+#no_results {
+  text-align : center;
+}
+
+#no_results a.clear {
+  display : block;
+}
+
+#no_results a {
+  cursor: pointer;
+  margin : 0;
+}
+
+.hidden {
+  display : none;
+}

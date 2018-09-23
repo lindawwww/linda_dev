@@ -1,0 +1,266 @@
+// query: hoge
+// idBoards: Product_dev(id)
+// card_list: true
+
+{
+  "options": {
+    "terms": [
+      {
+        "text": "hoge"
+      }
+    ],
+    "modifiers": [],
+    "modelTypes": [
+      "actions",
+      "cards",
+      "boards",
+      "organizations",
+      "members"
+    ],
+    "partial": false
+  },
+  "boards": [],
+  "cards": [
+    {
+      "id": "5b2c7d0866dd99841f907034",
+      "badges": {
+        "votes": 0,
+        "attachmentsByType": {
+          "trello": {
+            "board": 0,
+            "card": 5
+          }
+        },
+        "viewingMemberVoted": false,
+        "subscribed": false,
+        "fogbugz": "",
+        "checkItems": 1,
+        "checkItemsChecked": 0,
+        "comments": 0,
+        "attachments": 8,
+        "description": false,
+        "due": null,
+        "dueComplete": false
+      },
+      "checkItemStates": [],
+      "closed": false,
+      "dueComplete": false,
+      "dateLastActivity": "2018-07-09T06:55:25.767Z",
+      "desc": "",
+      "descData": null,
+      "due": null,
+      "email": null,
+      "idBoard": "5b07aba0aca1e417fbf8a003",
+      "idChecklists": [
+        "5b2c7d0966dd99841f90705b",
+        "5b2c7d0966dd99841f90705c",
+        "5b2c7d0966dd99841f90705e"
+      ],
+      "idList": "5b07aba0aca1e417fbf8a004",
+      "idMembers": [],
+      "idMembersVoted": [],
+      "idShort": 15,
+      "idAttachmentCover": "5b2c7d0866dd99841f907048",
+      "labels": [],
+      "limits": {
+        "attachments": {
+          "perCard": {
+            "status": "ok",
+            "disableAt": 950,
+            "warnAt": 900
+          }
+        },
+        "checklists": {
+          "perCard": {
+            "status": "ok",
+            "disableAt": 475,
+            "warnAt": 450
+          }
+        },
+        "stickers": {
+          "perCard": {
+            "status": "ok",
+            "disableAt": 67,
+            "warnAt": 63
+          }
+        }
+      },
+      "idLabels": [],
+      "manualCoverAttachment": false,
+      "name": "hoge in yamato",
+      "pos": 147455,
+      "shortLink": "KQXI3eAH",
+      "shortUrl": "https://trello.com/c/KQXI3eAH",
+      "subscribed": false,
+      "list": {
+        "id": "5b07aba0aca1e417fbf8a004",
+        "name": "ヤマト徽章株式会社",
+        "closed": false,
+        "idBoard": "5b07aba0aca1e417fbf8a003",
+        "pos": 65535,
+        "subscribed": false
+      },
+      "url": "https://trello.com/c/KQXI3eAH/15-hoge-in-yamato"
+    },
+    {
+      "id": "5b3646e2e21028ff26c33f48",
+      "badges": {
+        "votes": 0,
+        "attachmentsByType": {
+          "trello": {
+            "board": 0,
+            "card": 0
+          }
+        },
+        "viewingMemberVoted": false,
+        "subscribed": false,
+        "fogbugz": "",
+        "checkItems": 0,
+        "checkItemsChecked": 0,
+        "comments": 0,
+        "attachments": 0,
+        "description": false,
+        "due": null,
+        "dueComplete": false
+      },
+      "checkItemStates": [],
+      "closed": false,
+      "dueComplete": false,
+      "dateLastActivity": "2018-06-29T14:49:06.229Z",
+      "desc": "",
+      "descData": null,
+      "due": null,
+      "email": null,
+      "idBoard": "5b07aba0aca1e417fbf8a003",
+      "idChecklists": [],
+      "idList": "5b3646cda67c414307f48516",
+      "idMembers": [],
+      "idMembersVoted": [],
+      "idShort": 17,
+      "idAttachmentCover": null,
+      "labels": [],
+      "limits": {
+        "attachments": {
+          "perCard": {
+            "status": "ok",
+            "disableAt": 950,
+            "warnAt": 900
+          }
+        },
+        "checklists": {
+          "perCard": {
+            "status": "ok",
+            "disableAt": 475,
+            "warnAt": 450
+          }
+        },
+        "stickers": {
+          "perCard": {
+            "status": "ok",
+            "disableAt": 67,
+            "warnAt": 63
+          }
+        }
+      },
+      "idLabels": [],
+      "manualCoverAttachment": false,
+      "name": "hoge in 株式会社ほげ",
+      "pos": 65535,
+      "shortLink": "X1RgfUCz",
+      "shortUrl": "https://trello.com/c/X1RgfUCz",
+      "subscribed": false,
+      "url": "https://trello.com/c/X1RgfUCz/17-hoge-in-%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%81%BB%E3%81%92",
+      "list": {
+        "id": "5b3646cda67c414307f48516",
+        "name": "株式会社ほげ",
+        "closed": false,
+        "idBoard": "5b07aba0aca1e417fbf8a003",
+        "pos": 180223,
+        "subscribed": false
+      }
+    },
+    {
+      "id": "5b360d269ecb10f3a8bdb50c",
+      "badges": {
+        "votes": 0,
+        "attachmentsByType": {
+          "trello": {
+            "board": 0,
+            "card": 9
+          }
+        },
+        "viewingMemberVoted": false,
+        "subscribed": false,
+        "fogbugz": "",
+        "checkItems": 1,
+        "checkItemsChecked": 0,
+        "comments": 0,
+        "attachments": 12,
+        "description": false,
+        "due": null,
+        "dueComplete": false
+      },
+      "checkItemStates": [],
+      "closed": false,
+      "dueComplete": false,
+      "dateLastActivity": "2018-07-03T15:24:34.416Z",
+      "desc": "",
+      "descData": null,
+      "due": null,
+      "email": null,
+      "idBoard": "5b07aba0aca1e417fbf8a003",
+      "idChecklists": [
+        "5b360d269ecb10f3a8bdb52a",
+        "5b360d269ecb10f3a8bdb52b",
+        "5b360d269ecb10f3a8bdb52c"
+      ],
+      "idList": "5b07aba0aca1e417fbf8a005",
+      "idMembers": [],
+      "idMembersVoted": [],
+      "idShort": 16,
+      "idAttachmentCover": "5b360d269ecb10f3a8bdb518",
+      "labels": [],
+      "limits": {
+        "attachments": {
+          "perCard": {
+            "status": "ok",
+            "disableAt": 950,
+            "warnAt": 900
+          }
+        },
+        "checklists": {
+          "perCard": {
+            "status": "ok",
+            "disableAt": 475,
+            "warnAt": 450
+          }
+        },
+        "stickers": {
+          "perCard": {
+            "status": "ok",
+            "disableAt": 67,
+            "warnAt": 63
+          }
+        }
+      },
+      "idLabels": [],
+      "manualCoverAttachment": false,
+      "name": "hoge in 有限会社ほげ",
+      "pos": 106495,
+      "shortLink": "vNMpCuGJ",
+      "shortUrl": "https://trello.com/c/vNMpCuGJ",
+      "subscribed": false,
+      "list": {
+        "id": "5b07aba0aca1e417fbf8a005",
+        "name": "有限会社ほげ",
+        "closed": false,
+        "idBoard": "5b07aba0aca1e417fbf8a003",
+        "pos": 131071,
+        "subscribed": false
+      },
+      "url": "https://trello.com/c/vNMpCuGJ/16-hoge-in-%E6%9C%89%E9%99%90%E4%BC%9A%E7%A4%BE%E3%81%BB%E3%81%92"
+    }
+  ],
+  "organizations": [],
+  "members": []
+}

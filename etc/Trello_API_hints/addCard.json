@@ -1,0 +1,122 @@
+{
+  "id": "5b52b95e2b0b30821bc752ac",
+  "badges": {
+    "votes": 0,
+    "attachmentsByType": {
+      "trello": {
+        "board": 0,
+        "card": 9
+      }
+    },
+    "viewingMemberVoted": false,
+    "subscribed": false,
+    "fogbugz": "",
+    "checkItems": 0,
+    "checkItemsChecked": 0,
+    "comments": 0,
+    "attachments": 11,
+    "description": true,
+    "due": null,
+    "dueComplete": false
+  },
+  "attachments": [
+    {
+      "id": "5b52b95e2b0b30821bc752c8",
+      "bytes": 2155530,
+      "date": "2018-06-28T01:17:37.493Z",
+      "edgeColor": "#7c5c3c",
+      "idMember": "5b52b95e2b0b30821bc752c9",
+      "isUpload": true,
+      "mimeType": null,
+      "name": "IMG_0919.JPG",
+      "previews": [
+        {
+          "bytes": 4686,
+          "url": "https://trello-attachments.s3.amazonaws.com/5b07abd2282983c708812717/5b52b95e2b0b30821bc752ac/70x50/8627f841765b2f5fdb1c15eb4037ac33/IMG_0919.JPG.png",
+          "height": 50,
+          "width": 70,
+          "_id": "5b52b95e2b0b30821bc752ca",
+          "scaled": false
+        },
+        {
+          "bytes": 34246,
+          "url": "https://trello-attachments.s3.amazonaws.com/5b07abd2282983c708812717/5b52b95e2b0b30821bc752ac/250x150/66b8bdc4e8c17283d644bc6c28d84ab4/IMG_0919.JPG.png",
+          "height": 150,
+          "width": 250,
+          "_id": "5b52b95e2b0b30821bc752cb",
+          "scaled": false
+        },
+        {
+          "bytes": 6437,
+          "url": "https://trello-attachments.s3.amazonaws.com/5b07abd2282983c708812717/5b52b95e2b0b30821bc752ac/150x200/1b9cc5273cae3e5b8056175250604542/IMG_0919.JPG.jpg",
+          "height": 200,
+          "width": 150,
+          "_id": "5b52b95e2b0b30821bc752cc",
+          "scaled": true
+        },
+        {
+          "bytes": 21386,
+          "url": "https://trello-attachments.s3.amazonaws.com/5b07abd2282983c708812717/5b52b95e2b0b30821bc752ac/300x400/2ec994a3d7fbf53e26799b7fdb495f5f/IMG_0919.JPG.jpg",
+          "height": 400,
+          "width": 300,
+          "_id": "5b52b95e2b0b30821bc752cd",
+          "scaled": true
+        },
+        {
+          "bytes": 72653,
+          "url": "https://trello-attachments.s3.amazonaws.com/5b07abd2282983c708812717/5b52b95e2b0b30821bc752ac/600x800/a09982d4f2b64bbf5a7b5bd6d48101d8/IMG_0919.JPG.jpg",
+          "height": 800,
+          "width": 600,
+          "_id": "5b52b95e2b0b30821bc752ce",
+          "scaled": true
+        },
+        {
+          "bytes": 241245,
+          "url": "https://trello-attachments.s3.amazonaws.com/5b07abd2282983c708812717/5b52b95e2b0b30821bc752ac/1200x1600/7d50a2e4ba4bc5da4b877c9ee2cb5075/IMG_0919.JPG.jpg",
+          "height": 1600,
+          "width": 1200,
+          "_id": "5b52b95e2b0b30821bc752cf",
+          "scaled": true
+        },
+        {
+          "bytes": 2155530,
+          "height": 3024,
+          "width": 4032,
+          "url": "https://trello-attachments.s3.amazonaws.com/5b07abd2282983c708812717/5b52b95e2b0b30821bc752ac/4032x3024/041b7f598380bf88f84031201de63444/IMG_0919.JPG",
+          "_id": "5b52b95e2b0b30821bc752d0",
+          "scaled": true
+        }
+      ],
+      "url": "https://trello-attachments.s3.amazonaws.com/5b07abd2282983c708812717/5b52b95e2b0b30821bc752ac/x/c7bce97d38df27948e9ec002d24a32d8/IMG_0919.JPG",
+      "pos": 180224
+    }
+  ],
+  "checkItemStates": [],
+  "closed": false,
+  "dueComplete": false,
+  "dateLastActivity": "2018-07-21T04:41:03.330Z",
+  "desc": "1. 木地は切立の状態で裏加工\n2. 薄茶に正面裏の着色を行う\n3. 夢工房で象嵌加工を行う\n4. 板側面のルーター加工を行う\n5. クリヤー塗装を行う\n6. 金具取り付け加工\n\n塗装の仕上げに注意\n鏡面に近い仕上げ",
+  "descData": {
+    "emoji": {}
+  },
+  "due": null,
+  "email": null,
+  "idBoard": "5b07abd2282983c708812717",
+  "idChecklists": [],
+  "stickers": [],
+  "idList": "5b07abd2282983c708812718",
+  "idMembers": [],
+  "idMembersVoted": [],
+  "idShort": 6,
+  "idAttachmentCover": "5b52b95e2b0b30821bc752c8",
+  "labels": [],
+  "idLabels": [],
+  "manualCoverAttachment": false,
+  "name": "別注 象嵌楯",
+  "pos": 1024,
+  "shortLink": "W5lT3XSC",
+  "shortUrl": "https://trello.com/c/W5lT3XSC",
+  "subscribed": false,
+  "url": "https://trello.com/c/W5lT3XSC/6-%E5%88%A5%E6%B3%A8-%E8%B1%A1%E5%B5%8C%E6%A5%AF",
+  "limits": {}
+}
