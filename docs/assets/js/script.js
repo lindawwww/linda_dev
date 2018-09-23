@@ -76,36 +76,36 @@ var onBtnClick = function ( t, opts ){
 			storage.setItem("description", productCard.desc);
 			Trello.get( `/boards/${productBoardInfo.id}/customFields` )
 			.when( function (customFields) {
-					Trello.get( `/cards/${productCard.id}/customFieldItems` )
-					.then( function (customFieldItems){
-						for(index=0; index<customFieldItems.length; index++){
-							// customFields[0].name = '原価'
-							// customFields[1].name = '単価'
-							if(customFieldItems[index].idCustomField === customFields[0].id){
-								storage.setItem("cost", customFieldItems[index].value.number);
-							} else if (customFieldItems[index].idCustomField === customFields[1].id){
-								storage.setItem("unit_price", customFieldItems[index].value.number);
-							} else { console.log("invalid field"); }
-						}
-					});
-					console.log("successfully worked so far "+productCard.attachments.length);
-					console.log(productCard.attachments);
-					storage.setItem("numberOfAttachments",productCard.attachments.length);
-
-					Trello.get(`/cards/${productCard.id}/attachments/${productCard.attachments[0].id}`)
-					.then( function (attachmentInfo0) {
-						console.log(attachmentInfo0);
-						// $.getJSON(attachmentInfo0.url+".json" , function(data) {
-						// 	console.log(data);
-						// });
-					});
-					for(index=productCard.attachments.length-1; index>=0; index--){
-						console.log(productCard.attachments[index]);
-						console.log(productCard.attachments[index].name);
-						storage.setItem("attachmentName"+index,productCard.attachments[index].name)
+				Trello.get( `/cards/${productCard.id}/customFieldItems` )
+				.then( function (customFieldItems){
+					for(index=0; index<customFieldItems.length; index++){
+						// customFields[0].name = '原価'
+						// customFields[1].name = '単価'
+						if(customFieldItems[index].idCustomField === customFields[0].id){
+							storage.setItem("cost", customFieldItems[index].value.number);
+						} else if (customFieldItems[index].idCustomField === customFields[1].id){
+							storage.setItem("unit_price", customFieldItems[index].value.number);
+						} else { console.log("invalid field"); }
 					}
-				).done(window.open('docs/components/printProductCard.html','_blank'));
-			});
+				});
+				console.log("successfully worked so far "+productCard.attachments.length);
+				console.log(productCard.attachments);
+				storage.setItem("numberOfAttachments",productCard.attachments.length);
+
+				Trello.get(`/cards/${productCard.id}/attachments/${productCard.attachments[0].id}`)
+				.then( function (attachmentInfo0) {
+					console.log(attachmentInfo0);
+					// $.getJSON(attachmentInfo0.url+".json" , function(data) {
+					// 	console.log(data);
+					// });
+				});
+				for(index=productCard.attachments.length-1; index>=0; index--){
+					console.log(productCard.attachments[index]);
+					console.log(productCard.attachments[index].name);
+					storage.setItem("attachmentName"+index,productCard.attachments[index].name)
+				}
+			}).done(window.open('docs/components/printProductCard.html','_blank'));
+			//});
 		});
 	});
 };
