@@ -75,7 +75,7 @@ var onBtnClick = function ( t, opts ){
 			productCard.desc = productCard.desc.replace(/(<br>|<br \/>)/gi, '\n');
 			storage.setItem("description", productCard.desc);
 			Trello.get( `/boards/${productBoardInfo.id}/customFields` )
-			.when( function (customFields) {
+			.then( function (customFields) {
 				Trello.get( `/cards/${productCard.id}/customFieldItems` )
 				.then( function (customFieldItems){
 					for(index=0; index<customFieldItems.length; index++){
@@ -104,7 +104,7 @@ var onBtnClick = function ( t, opts ){
 					console.log(productCard.attachments[index].name);
 					storage.setItem("attachmentName"+index,productCard.attachments[index].name)
 				}
-			}).done(window.open('docs/components/printProductCard.html','_blank'));
+			}).then(window.open('docs/components/printProductCard.html','_blank'));
 		});
 	});//t.card
 };
