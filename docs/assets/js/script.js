@@ -98,13 +98,17 @@ var onBtnClick = function ( t, opts ){
 							console.log("set the unit_price");
 						} else { console.log("invalid field"); }
 					}
-				}).fail( function(errorMsg) {
-					console.log( errorMsg );
-				}).always(function (){
 					console.log("finish the sub process");
 					deferred.resolve();
 					return deferred;
+				}).fail( function(errorMsg) {
+					console.log( errorMsg );
 				});
+				// .always(function (){
+				// 	console.log("finish the sub process");
+				// 	deferred.resolve();
+				// 	return deferred;
+				// });
 
 				// console.log("successfully worked so far "+productCard.attachments.length);
 				// //console.log(productCard.attachments);
