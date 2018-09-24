@@ -81,10 +81,10 @@ var onBtnClick = function ( t, opts ){
 			Trello.get( `/boards/${productBoardInfo.id}/customFields` )
 			.then( function (customFields) {
 
-				console.log("define deferred");
+				console.log("define subDeferred");
 				var subDeferred = Trello.get( `/cards/${productCard.id}/customFieldItems` )
 				.then( function (customFieldItems){
-					console.log("start deferred");
+					console.log("start subDeferred");
 					var deferred = new $.Deferred();
 					for(index=0; index<customFieldItems.length; index++){
 						// customFields[0].name = '原価'
@@ -98,28 +98,29 @@ var onBtnClick = function ( t, opts ){
 							console.log("set the unit_price");
 						} else { console.log("invalid field"); }
 					}
-					 console.log("finish the process");
+					 console.log("finish the sub process");
 					 deferred.resolve();
 					 return deferred;
 				});
-				console.log("subDeferred done");
-				subDeferred.done(window.open('docs/components/printProductCard.html','_blank'));
-				console.log("successfully worked so far "+productCard.attachments.length);
-				//console.log(productCard.attachments);
-				storage.setItem("numberOfAttachments",productCard.attachments.length);
 
-				Trello.get(`/cards/${productCard.id}/attachments/${productCard.attachments[0].id}`)
-				.then( function (attachmentInfo0) {
-					//console.log(attachmentInfo0);
-					// $.getJSON(attachmentInfo0.url+".json" , function(data) {
-					// 	console.log(data);
-					// });
-				});
+				// console.log("successfully worked so far "+productCard.attachments.length);
+				// //console.log(productCard.attachments);
+				// storage.setItem("numberOfAttachments",productCard.attachments.length);
+
+				// Trello.get(`/cards/${productCard.id}/attachments/${productCard.attachments[0].id}`)
+				// .then( function (attachmentInfo0) {
+				// 	//console.log(attachmentInfo0);
+				// 	// $.getJSON(attachmentInfo0.url+".json" , function(data) {
+				// 	// 	console.log(data);
+				// 	// });
+				// });
 				for(index=productCard.attachments.length-1; index>=0; index--){
 					//console.log(productCard.attachments[index]);
 					console.log(productCard.attachments[index].name);
 					storage.setItem("attachmentName"+index,productCard.attachments[index].name)
 				}
+				console.log("subDeferred done");
+				subDeferred.done(window.open('docs/components/printProductCard.html','_blank'));
 			});
 		});
 		// console.log("deferred done");
