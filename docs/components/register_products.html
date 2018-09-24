@@ -1,7 +1,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
-	<link rel="stylesheet" hred="../assets/css/register_products.css">
+	<link rel="stylesheet" href="../assets/css/register_products.css">
 	<link rel="stylesheet" href="../assets/css/print.min.css">
 	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
 	      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> -->
@@ -94,36 +94,28 @@
 <body>
 
 <div id="search_product_wrapper">
+	<div class="container">
+		<form id="search_product">
+			<label>日付で検索する:</label>
+			<input type="text" name="search_by_date_start" id="search_by_date_start_input" class="search-by-date-input inline"/>
+			<span class="inline">〜</span>
+			<input type="text" name="search_by_date_end" id="search_by_date_end_input" class="search-by-date-input inline"/>
 
-	<form id="search_product">
-		<label>日付で検索する:</label>
-		<input type="text" name="search_by_date_start" id="search_by_date_start_input" class="search-by-date-input inline"/>
-		<span class="inline">〜</span>
-		<input type="text" name="search_by_date_end" id="search_by_date_end_input" class="search-by-date-input inline"/>
+			<label for="search_by_word_input">キーワードで検索する:</label>
+			<input type="text" name="search_by_word" id="search_by_word_input" class="search-by-word-input"/>
 
-		<label for="search_by_word_input">キーワードで検索する:</label>
-		<input type="text" name="search_by_word" id="search_by_word_input" class="search-by-word-input"/>
+			<button type="submit" class="btn-add mod-primary">Search</button>
+		</form>
 
-		<button type="submit" class="btn-add mod-primary">Search</button>
-	</form>
 
-	<div id="search_result">
-	</div>
-
-	<!-- <div id="showing">
-		<p>Showing <strong id="show-more-showing-number" class="showing">0</strong> of <strong
-				id="show-more-total-number" class="total">0</strong> boards</p>
-		<div id="progress">
-			<div id="bar" style="width: 0%;"></div>
+		<div id="search_result">
 		</div>
-		<a class="global-header-section-button show-more js-show-more">Show more</a>
-	</div> -->
 
-	<div id="no_results" class="hidden">
-		<h3>検索結果がみつかりませんでした。</h3>
-		<button type="button" class="clear mod-danger js-clear-search-query">条件をクリア</button>
+		<div id="no_results" class="hidden">
+			<h3>検索結果がみつかりませんでした。</h3>
+			<button type="button" class="clear mod-danger js-clear-search-query">条件をクリア</button>
+		</div>
 	</div>
-
 </div>
 
 <script src="https://p.trellocdn.com/embed.min.js"></script>
