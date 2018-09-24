@@ -1,21 +1,26 @@
-.search-by-date-input{
-  width:23%;
-}
-.search-by-word-input{
-  width:23%;
-}
 .inline{
   display: inline-block;
-  /* float:left; */
+  float:left;
 }
 .container{
   width: 50%;
   margin: 0 25% 0 25%;
-  padding-top: 6px;
+  padding-top: 20px;
 }
 .hidden{
   display:none;
 }
-input[type="text"]{
-  all:initial;
+.full_wide{
+  display:inline-block;
+  width:100%;
+}
+#search_by_date_start_input{
+  width:30%;
+}
+#search_by_date_end_input{
+  width:30%;
+}
+#space_between_inputs{
+  width:50px;
+  text-align: center;
 }
