@@ -181,7 +181,7 @@ window.TrelloPowerUp.initialize( {
 				// 	} );
 				return t.modal( {
 					title: '商品検索 - 登録',
-					url   : 'docs/components/register_products_pop.html',
+					url   : 'docs/components/register_products.html',
 					args  : { // popupを跨ぐと、グローバル変数としてアクセスできないのでargsで渡す
 						env   : TrelloOrganization.dev,
 						boards: TrelloBoards,
@@ -190,20 +190,6 @@ window.TrelloPowerUp.initialize( {
 				} );
 				}
 			} ,
-		{
-			icon    : TrelloIcons.CONTROLLER,
-			text    : '商品を検索',
-			callback: function( t ) {
-				return t.popup( {
-					title : '商品検索 - 登録',
-					url   : 'docs/components/register_products_pop.html',
-					args  : { // popupを跨ぐと、グローバル変数としてアクセスできないのでargsで渡す
-						env   : TrelloOrganization.dev,
-						boards: TrelloBoards,
-					},
-					height: 440, // initial height, can be changed later
-				} );
-			}
 		}];
 		} else if( board === TrelloBoards.Parts.id ) { // Order Board Button
 			console.log( 'parts board' );
