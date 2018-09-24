@@ -68,7 +68,7 @@ var onBtnClick = function ( t, opts ){
 		if(productCard.customFieldItems.length!==0){
 			console.log(productCard.customFieldItems);
 		}
-		Trello.get( `/cards/${productCard.id}/board` )
+		var deferred = Trello.get( `/cards/${productCard.id}/board` )
 		.then( function (productBoardInfo) {
 			storage.setItem("name", productCard.name);
 			// productCard.desc = productCard.desc.replace(/\r\n?\n\r?\r?\n/g, '<br>');
@@ -76,36 +76,45 @@ var onBtnClick = function ( t, opts ){
 			storage.setItem("description", productCard.desc);
 			Trello.get( `/boards/${productBoardInfo.id}/customFields` )
 			.then( function (customFields) {
+
 				Trello.get( `/cards/${productCard.id}/customFieldItems` )
 				.then( function (customFieldItems){
+					var deferred = new $.Deferred();
 					for(index=0; index<customFieldItems.length; index++){
 						// customFields[0].name = '原価'
 						// customFields[1].name = '単価'
 						if(customFieldItems[index].idCustomField === customFields[0].id){
 							storage.setItem("cost", customFieldItems[index].value.number);
+							console.log("set the cost");
 						} else if (customFieldItems[index].idCustomField === customFields[1].id){
 							storage.setItem("unit_price", customFieldItems[index].value.number);
+							deferred.resolve();
+							console.log("set the unit_price");
 						} else { console.log("invalid field"); }
 					}
+					 console.log("finish the process");
+					 return deferred;
 				});
+
 				console.log("successfully worked so far "+productCard.attachments.length);
-				console.log(productCard.attachments);
+				//console.log(productCard.attachments);
 				storage.setItem("numberOfAttachments",productCard.attachments.length);
 
 				Trello.get(`/cards/${productCard.id}/attachments/${productCard.attachments[0].id}`)
 				.then( function (attachmentInfo0) {
-					console.log(attachmentInfo0);
+					//console.log(attachmentInfo0);
 					// $.getJSON(attachmentInfo0.url+".json" , function(data) {
 					// 	console.log(data);
 					// });
 				});
 				for(index=productCard.attachments.length-1; index>=0; index--){
-					console.log(productCard.attachments[index]);
+					//console.log(productCard.attachments[index]);
 					console.log(productCard.attachments[index].name);
 					storage.setItem("attachmentName"+index,productCard.attachments[index].name)
 				}
-			}).then(window.open('docs/components/printProductCard.html','_blank'));
+			});
 		});
+		deferred.done(window.open('docs/components/printProductCard.html','_blank'));
 	});//t.card
 };
 
