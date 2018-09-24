@@ -63,12 +63,8 @@ var onBtnClick = function ( t, opts ){
 		.then( function (productBoardInfo) {
 
 			storage.setItem("name", productCard.name);
-			console.log(typeof productCard.desc);
-			console.log(productCard.desc);
-			productCard.desc = productCard.desc.replace(/\\r\\n?\\n\\r?\\r?\\n?/g, 'aaa');
-			// productCard.desc = productCard.desc.replace(/(<br>|<br \/>)/gi, '\n');
+			productCard.desc = productCard.desc.replace(/\n/g, '<br>');
 			storage.setItem("description", productCard.desc);
-			console.log(productCard.desc);
 			Trello.get( `/boards/${productBoardInfo.id}/customFields` )
 			.then( function (customFields) {
 
