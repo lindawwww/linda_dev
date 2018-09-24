@@ -123,7 +123,10 @@ var onBtnClick = function ( t, opts ){
 					storage.setItem("attachmentName"+index,productCard.attachments[index].name)
 				}
 				console.log("subDeferred done");
-				subDeferred.done(window.open('docs/components/printProductCard.html','_blank'));
+				//it works when subDeferred is done
+				subDeferred.done( function(){
+					window.open('docs/components/printProductCard.html','_blank')
+				});
 			});
 		});
 		// console.log("deferred done");
