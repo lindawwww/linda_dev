@@ -139,15 +139,6 @@ window.TrelloPowerUp.initialize( {
 				icon    : TrelloIcons.CONTROLLER,
 				text    : '素材を追加',
 				callback: function( t ) {
-					// return t.popup( {
-					// 	title : '素材 - 新規作成',
-					// 	url   : 'docs/components/register_parts_pop.html',
-					// 	args  : { // popupを跨ぐと、グローバル変数としてアクセスできないのでargsで渡す
-					// 		env   : TrelloOrganization.dev,
-					// 		boards: TrelloBoards,
-					// 	},
-					// 	height: 340, // initial height, can be changed later
-					// } );
 					return t.modal( {
 						title: '素材 - 新規作成',
 						url   : 'docs/components/register_parts.html',
