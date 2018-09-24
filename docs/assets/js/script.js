@@ -75,6 +75,7 @@ var onBtnClick = function ( t, opts ){
 
 			// console.log("start deferred");
 			storage.setItem("name", productCard.name);
+			console.log(typeof productCard.desc);
 			// productCard.desc = productCard.desc.replace(/\r\n?\n\r?\r?\n/g, '<br>');
 			productCard.desc = productCard.desc.replace(/(<br>|<br \/>)/gi, '\n');
 			storage.setItem("description", productCard.desc);
