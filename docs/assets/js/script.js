@@ -83,7 +83,7 @@ var onBtnClick = function ( t, opts ){
 
 				console.log("define subDeferred");
 				var subDeferred = Trello.get( `/cards/${productCard.id}/customFieldItems` )
-				.then( function (customFieldItems){
+				.done( function (customFieldItems){
 					console.log("start subDeferred");
 					var deferred = new $.Deferred();
 					for(index=0; index<customFieldItems.length; index++){
@@ -98,10 +98,12 @@ var onBtnClick = function ( t, opts ){
 							console.log("set the unit_price");
 						} else { console.log("invalid field"); }
 					}
+				}).fail( function(errorMsg) {
+					console.log( errorMsg );
 				}).always(function (){
-					 console.log("finish the sub process");
-					 deferred.resolve();
-					 return deferred;
+					console.log("finish the sub process");
+					deferred.resolve();
+					return deferred;
 				});
 
 				// console.log("successfully worked so far "+productCard.attachments.length);
