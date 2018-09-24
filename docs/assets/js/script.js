@@ -59,25 +59,13 @@ var onBtnClick = function ( t, opts ){
 	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems' )
 	.then( function( productCard ) {
 		//setting up the board's id
-		console.log(productCard.id);
-		console.log(productCard.name);
-		console.log(productCard.desc);
-		if(productCard.attachments.length!==0){
-			console.log(productCard.attachments);
-		}
-		if(productCard.customFieldItems.length!==0){
-			console.log(productCard.customFieldItems);
-		}
-		// console.log("define deferred");
 		Trello.get( `/cards/${productCard.id}/board` )
 		.then( function (productBoardInfo) {
-			// var deferred = new $.Deferred();
 
-			// console.log("start deferred");
 			storage.setItem("name", productCard.name);
 			console.log(typeof productCard.desc);
 			console.log(productCard.desc);
-			productCard.desc = productCard.desc.replace(/\r\n?\n\r?\r?\n/g, 'aaa');
+			productCard.desc = productCard.desc.replace(/\\r\\n?\\n\\r?\\r?\\n?/g, '<br>');
 			// productCard.desc = productCard.desc.replace(/(<br>|<br \/>)/gi, '\n');
 			storage.setItem("description", productCard.desc);
 			console.log(productCard.desc);
