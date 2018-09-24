@@ -1,0 +1,10 @@
+.search-by-date-input{
+  width:30%;
+}
+.search-by-word-input{
+  width:50%;
+}
+.inline{
+  display: inline;
+  float:left;
+}
