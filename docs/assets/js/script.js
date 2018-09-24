@@ -65,7 +65,7 @@ var onBtnClick = function ( t, opts ){
 			storage.setItem("name", productCard.name);
 			console.log(typeof productCard.desc);
 			console.log(productCard.desc);
-			productCard.desc = productCard.desc.replace(/\\r\\n?\\n\\r?\\r?\\n?/g, '<br>');
+			productCard.desc = productCard.desc.replace(/\\r\\n?\\n\\r?\\r?\\n?/g, 'aaa');
 			// productCard.desc = productCard.desc.replace(/(<br>|<br \/>)/gi, '\n');
 			storage.setItem("description", productCard.desc);
 			console.log(productCard.desc);
