@@ -1,15 +1,21 @@
 .search-by-date-input{
-  width:30%;
+  width:23%;
 }
 .search-by-word-input{
-  width:50%;
+  width:23%;
 }
 .inline{
-  display: inline;
-  float:left;
+  display: inline-block;
+  /* float:left; */
 }
 .container{
   width: 50%;
   margin: 0 25% 0 25%;
   padding-top: 6px;
+}
+.hidden{
+  display:none;
+}
+input[type="text"]{
+  all:initial;
 }
