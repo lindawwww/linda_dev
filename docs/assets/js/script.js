@@ -104,7 +104,9 @@ var onBtnClick = function ( t, opts ){
 				}).fail( function(errorMsg) {
 					console.log( errorMsg );
 				});
-				// .always(function (){
+				// deferred can't turn over
+				//
+				// }).always(function (){
 				// 	console.log("finish the sub process");
 				// 	deferred.resolve();
 				// 	return deferred;
