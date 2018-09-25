@@ -190,7 +190,12 @@ window.TrelloPowerUp.initialize( {
 		const board = opts.context.board;
 		if( board === TrelloBoards.Product.id ) {  // Product Board Button
 			console.log( 'product board' );
-			return [ {
+			return [{
+				icon    : TrelloIcons.CONTROLLER,
+				text    : '印刷',
+				callback: onProductBtnClick,
+			},
+			{
 				icon    : TrelloIcons.CONTROLLER,
 				text    : '素材を追加',
 				callback: function( t ) {
@@ -204,12 +209,7 @@ window.TrelloPowerUp.initialize( {
 						fullscreen: false,
 					} );
 				}
-			},
-			{
-				icon    : TrelloIcons.CONTROLLER,
-				text    : '印刷',
-				callback: onProductBtnClick,
-			} ];
+			}];
 		} else if( board === TrelloBoards.Order.id ) { // Order Board Button
 			console.log( 'order board' )
 			return [{
