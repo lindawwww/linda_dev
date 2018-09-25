@@ -4,7 +4,7 @@
   console.log(storage.getItem("productName"));
   $("#product_name").text(storage.getItem("productName"));
   console.log(storage.getItem("productDescription"));
-  $("#product_description").text(storage.getItem("productDescription"));
+  document.getElementById('product_description').innerHTML = storage.getItem('productDescription');
   console.log(storage.getItem("productCost"));
   $("#product_cost").text(storage.getItem("productCost"));
   console.log(storage.getItem("productUnitPrice"));
