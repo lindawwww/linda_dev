@@ -120,13 +120,13 @@ var onOrderBtnClick = function (t, ops){
 			orderCard.desc = orderCard.desc.replace(/\n/g, '<br>');
 			storage.setItem("orderDescription", orderCard.desc);
 			storage.setItem("numberOfProductAttachments",orderCard.attachments.length);
-//-------
+
 			Trello.get( `/lists/${orderCard.idList}` )
 			.then(function (listInfo){
 				console.log(listInfo);
 				// Lists[0].name = 'ヤマト'
 				// Lists[1].name = 'hoge'
-				storage.setItem("order_customer",listInfo.name);	
+				storage.setItem("orderCustomer",listInfo.name);
 			});
 			Trello.get( `/boards/${orderBoardInfo.id}/customFields` )
 			.then( function (customFields) {
