@@ -126,6 +126,13 @@ var onOrderBtnClick = function (t, ops){
 			storage.setItem("orderDescription", orderCard.desc);
 			storage.setItem("numberOfAttachments",orderCard.attachments.length);
 //-------
+			Trello.get( `/boards/${orderBoardInfo.id}/lists` )
+			.then(function (boardLists){
+				console.log(boardLists);
+				// boardLists[0].name = 'ヤマト'
+				// boardLists[1].name = 'hoge'
+				
+			});
 			Trello.get( `/boards/${orderBoardInfo.id}/customFields` )
 			.then( function (customFields) {
 
