@@ -10,9 +10,9 @@
   console.log(storage.getItem("orderDescription"));
   document.getElementById("order_description").textContent = storage.getItem("orderDescription");
   console.log(storage.getItem("orderTotalCost"));
-  document.getElementById("order_cost").textContent = storage.getItem("orderTotalCost");
+  document.getElementById("order_cost").innerHTML = storage.getItem("orderTotalCost");
   console.log(storage.getItem("orderTotalUnitPrice"));
-  document.getElementById("order_total_unit_price").textContent = storage.getItem("orderTotalUnitPrice");
+  document.getElementById("order_total_unit_price").innerHTML = storage.getItem("orderTotalUnitPrice");
   console.log(storage.getItem("dateReceivedOrder"));
   document.getElementById("date_received_order").textContent = storage.getItem("dateReceivedOrder");
 
