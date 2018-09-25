@@ -55,7 +55,7 @@ var onProductBtnClick = function ( t, opts ){
 			storage.setItem("productName", productCard.name);
 			productCard.desc = productCard.desc.replace(/\n/g, '<br>');
 			storage.setItem("productDescription", productCard.desc);
-			storage.setItem("numberOfAttachments",productCard.attachments.length);
+			storage.setItem("numberOfMaterialAttachments",productCard.attachments.length);
 			Trello.get( `/boards/${productBoardInfo.id}/customFields` )
 			.then( function (customFields) {
 
@@ -99,8 +99,8 @@ var onProductBtnClick = function ( t, opts ){
 				// 	// });
 				// });
 				console.log(productCard.attachments.length);
-				console.log(storage.getItem("numberOfAttachments"));
-				if( storage.getItem("numberOfAttachments")!==0 ){
+				console.log(storage.getItem("numberOfMaterialAttachments"));
+				if( storage.getItem("numberOfMaterialAttachments")!==0 ){
 					for(index=productCard.attachments.length-1; index>=0; index--){
 						//console.log(productCard.attachments[index]);
 						console.log(productCard.attachments[index].name);
