@@ -8,7 +8,7 @@
   console.log(storage.getItem('orderCustomerRepresentative'));
   $('#order_customer_representative').text(storage.getItem('orderCustomerRepresentative'));
   console.log(storage.getItem('orderDescription'));
-  document.getElementsById('order_description').innerHTML = storage.getItem('orderDescription');
+  document.getElementById('order_description').innerHTML = storage.getItem('orderDescription');
   console.log(storage.getItem('orderTotalCost'));
   $('#order_total_cost').text(storage.getItem('orderTotalCost'));
   console.log(storage.getItem('orderTotalUnitPrice'));
