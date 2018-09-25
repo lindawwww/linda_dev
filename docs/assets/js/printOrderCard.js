@@ -4,9 +4,9 @@
   console.log(storage.getItem("orderName"));
   document.getElementById("order_name").innerHTML = storage.getItem("orderName");
   console.log(storage.getItem("orderRepresentative"));
-  document.getElementById("order_repesentative").innerHTML = storage.getItem("orderRepresentative");
+  document.getElementById("order_representative").innerHTML = storage.getItem("orderRepresentative");
   console.log(storage.getItem("orderCustomerRepresentative"));
-  document.getElementById("order_customer_repesentative").innerHTML = storage.getItem("orderCustomerRepresentative");
+  document.getElementById("order_customer_representative").innerHTML = storage.getItem("orderCustomerRepresentative");
   console.log(storage.getItem("orderDescription"));
   document.getElementById("order_description").innerHTML = storage.getItem("orderDescription");
   console.log(storage.getItem("orderTotalCost"));
