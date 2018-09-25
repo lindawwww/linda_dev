@@ -10,7 +10,8 @@
   console.log(storage.getItem("orderDescription"));
   document.getElementById("order_description").textContent = storage.getItem("orderDescription");
   console.log(storage.getItem("orderTotalCost"));
-  document.getElementById("order_cost").innerHTML = storage.getItem("orderTotalCost");
+  // document.getElementById("order_cost").innerHTML = storage.getItem("orderTotalCost");
+  $('#order_cost').append(storage.getItem("orderTotalCost"));
   console.log(storage.getItem("orderTotalUnitPrice"));
   document.getElementById("order_total_unit_price").innerHTML = storage.getItem("orderTotalUnitPrice");
   console.log(storage.getItem("dateReceivedOrder"));
