@@ -121,20 +121,12 @@ var onOrderBtnClick = function (t, ops){
 			storage.setItem("orderDescription", orderCard.desc);
 			storage.setItem("numberOfProductAttachments",orderCard.attachments.length);
 //-------
-			Trello.get( `/boards/${orderBoardInfo.id}/lists` )
-			.then(function (boardLists){
-				console.log(boardLists);
-				// boardLists[0].name = 'ヤマト'
-				// boardLists[1].name = 'hoge'
-				for(index=0; index<boardLists.length; index++){
-					if(boardLists[index].id === orderCard.idList){
-						console.log("This list is ヤマト");
-						storage.setItem("order_customer",boardLists[index].name);
-					} else if (boardLists[index].id === orderCard.idList) {
-						console.log("This list is hoge");
-						storage.setItem("order_customer",boardLists[index].name);
-					} else { console.log("boardLists error"); }
-				}
+			Trello.get( `/lists/${orderCard.idList}` )
+			.then(function (listInfo){
+				console.log(listInfo);
+				// Lists[0].name = 'ヤマト'
+				// Lists[1].name = 'hoge'
+				storage.setItem("order_customer",listInfo.name);	
 			});
 			Trello.get( `/boards/${orderBoardInfo.id}/customFields` )
 			.then( function (customFields) {
