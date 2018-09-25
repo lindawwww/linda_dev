@@ -1,6 +1,8 @@
 (function () {
   var storage = sessionStorage;
 
+  console.log(storage.getItem('orderCustomer'));
+  $('#order_customer').text(storage.getItem('orderCustomer'));
   console.log(storage.getItem('orderName'));
   $('#order_name').text(storage.getItem('orderName'));
   console.log(storage.getItem('orderRepresentative'));

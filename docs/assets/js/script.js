@@ -117,15 +117,16 @@ var onProductBtnClick = function ( t, opts ){
 	});//t.card
 };
 var onOrderBtnClick = function (t, ops){
-	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems' )
+	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems', 'idList' )
 	.then( function( orderCard ){
 		Trello.get( `/cards/${orderCard.id}/board` )
 		.then( function (orderBoardInfo) {
 			storage.setItem("orderName", orderCard.name);
 			orderCard.desc = orderCard.desc.replace(/\n/g, '<br>');
 			storage.setItem("orderDescription", orderCard.desc);
-			storage.setItem("numberOfAttachments",orderCard.attachments.length);
+			storage.setItem("numberOfProductAttachments",orderCard.attachments.length);
 //-------
+			console.log(orderCard.idList);
 			Trello.get( `/boards/${orderBoardInfo.id}/lists` )
 			.then(function (boardLists){
 				console.log(boardLists);
@@ -135,11 +136,8 @@ var onOrderBtnClick = function (t, ops){
 			});
 			Trello.get( `/boards/${orderBoardInfo.id}/customFields` )
 			.then( function (customFields) {
-
-				console.log("define subDeferred");
 				var subDeferred = Trello.get( `/cards/${orderCard.id}/customFieldItems` )
 				.done( function (customFieldItems){
-					console.log("start subDeferred");
 					var deferred = new $.Deferred();
 					for(index=0; index<customFieldItems.length; index++){
 						// customFields[0].name = '記入者'
@@ -164,21 +162,19 @@ var onOrderBtnClick = function (t, ops){
 							console.log("set the date received order");
 						} else { console.log("invalid field"); }
 					}
-					console.log("finish the sub process");
 					deferred.resolve();
 					return deferred;
 				}).fail( function(errorMsg) {
 					console.log( errorMsg );
 				});
 
-				if( storage.getItem("numberOfAttachments")!==0 ){
+				if( storage.getItem("numberOfProductAttachments")!==0 ){
 					for(index=orderCard.attachments.length-1; index>=0; index--){
 						//console.log(orderCard.attachments[index]);
 						console.log(orderCard.attachments[index].name);
-						storage.setItem("attachmentMaterialName"+index,orderCard.attachments[index].name)
+						storage.setItem("attachmentProductName"+index,orderCard.attachments[index].name)
 					}
 				} else { console.log("No attachments!!"); }
-				console.log("subDeferred done");
 				//it works when subDeferred is done
 				subDeferred.done( function(){
 					window.open('docs/components/printOrderCard.html','_blank')
