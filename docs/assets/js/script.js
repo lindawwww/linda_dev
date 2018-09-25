@@ -131,7 +131,7 @@ var onOrderBtnClick = function (t, ops){
 				console.log(boardLists);
 				// boardLists[0].name = 'ヤマト'
 				// boardLists[1].name = 'hoge'
-				
+
 			});
 			Trello.get( `/boards/${orderBoardInfo.id}/customFields` )
 			.then( function (customFields) {
@@ -147,7 +147,6 @@ var onOrderBtnClick = function (t, ops){
 						// customFields[2].name = '合計売上'
 						// customFields[3].name = '合計原価'
 						// customFields[4].name = '受注日'
-						console.log(customFieldItems[index]);
 						if(customFieldItems[index].idCustomField === customFields[0].id){
 							storage.setItem("orderRepresentative", customFieldItems[index].value.text);
 							console.log("set the representative");
