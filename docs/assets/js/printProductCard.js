@@ -1,29 +1,19 @@
 (function (){
-  // document.write("<script type='text/javascript' src='docs/assets/js/script.js'></script>");
-  // window.onload = function(){alert(resText);};
-  // require('script.js');
-  // function loadScript(url) {
-  //   var script = document.createElement('script');
-  //   script.type = 'text/javascript';
-  //   script.src = url;
-  // };
-  // loadscript('docs/assets/js/script.js');
-
   var storage = sessionStorage;
 
-  console.log(storage.getItem("name"));
-  document.getElementById("product_name").innerHTML = storage.getItem("name");
-  console.log(storage.getItem("description"));
-  document.getElementById("product_description").innerHTML = storage.getItem("description");
-  console.log(storage.getItem("cost"));
-  document.getElementById("product_cost").innerHTML = storage.getItem("cost");
-  console.log(storage.getItem("unit_price"));
-  document.getElementById("product_unit_price").innerHTML = storage.getItem("unit_price");
-  var numberOfAttachments = storage.getItem("numberOfAttachments");
-  console.log(numberOfAttachments);
+  console.log(storage.getItem("productName"));
+  document.getElementById("product_name").innerHTML = storage.getItem("productName");
+  console.log(storage.getItem("productDescription"));
+  document.getElementById("product_description").innerHTML = storage.getItem("productDescription");
+  console.log(storage.getItem("productCost"));
+  document.getElementById("product_cost").innerHTML = storage.getItem("productCost");
+  console.log(storage.getItem("productUnitPrice"));
+  document.getElementById("product_unit_price").innerHTML = storage.getItem("productUnitPrice");
+  var numberOfMaterialAttachments = storage.getItem("numberOfMaterialAttachments");
+  console.log(numberOfMaterialAttachments);
 
-  for(var i=0; i<numberOfAttachments; i++){
-    var $name = storage.getItem('attachmentName'+i);
+  for(var i=0; i<numberOfMaterialAttachments; i++){
+    var $name = storage.getItem('attachmentMaterialName'+i);
     console.log($name);
     $('#attachments').append(
       $('<tr>').append(
@@ -33,13 +23,4 @@
     )
   }
 
-  // console.log(result);
 })();
-//https://developers.trello.com/v1.0/docs/clientjs
-// 素材ボードの取得
-// APIエンドポイントの一覧：https://developers.trello.com/v1.0/reference#lists
-// Client.js(実際の使い方)：https://api.trello.com/1/boards/id/lists
-//
-// (function(){
-//
-// })();

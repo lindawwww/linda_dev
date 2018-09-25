@@ -1,0 +1,34 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
+	<link rel="stylesheet" href="../assets/css/print.min.css">
+  <link rel="stylesheet" href="../assets/css/printOrderCard.css">
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <div class="container">
+    <div><span class="fontBold">顧客名： </span><span id="order_customer"></span></div>
+    <div><span class="fontBold">注文名： </span><span id="order_name"></span></div>
+    <div><span class="fontBold">詳細： <br><br></span><span id="order_description"></span><br><br></div>
+    <div><span class="fontBold">合計原価： </span><span id="order_total_cost"></span>円</div>
+    <div><span class="fontBold">合計単価： </span><span id="order_total_unit_price"></span>円</div>
+    <div><span class="fontBold"><br>受注日： </span><span id="date_received_order"></span></div>
+    <div id=product>商品</div>
+    <table border="1" width="500" cellspacing="0" cellpadding="5" bordercolor="#333333" id="attachments">
+      <tr>
+        <th>商品名</th>
+        <th>単価</th>
+        <th>原価</th>
+        <th>数量</th>
+      </tr>
+    </table>
+  </div>
+
+
+<script src="https://p.trellocdn.com/power-up.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../assets/js/print.min.js"></script>
+<script src="https://api.trello.com/1/client.js?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e"></script>
+<script src="../assets/js/printOrderCard.js"></script>
+</body>
+</html>
