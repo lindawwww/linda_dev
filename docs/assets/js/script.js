@@ -121,7 +121,7 @@ var onOrderBtnClick = function (t, ops){
 	.then( function( orderCard ){
 		Trello.get( `/cards/${orderCard.id}/board` )
 		.then( function (orderBoardInfo) {
-			storage.setItem("name", orderCard.name);
+			storage.setItem("orderName", orderCard.name);
 			orderCard.desc = orderCard.desc.replace(/\n/g, '<br>');
 			storage.setItem("orderDescription", orderCard.desc);
 			storage.setItem("numberOfAttachments",orderCard.attachments.length);
@@ -141,22 +141,22 @@ var onOrderBtnClick = function (t, ops){
 						// customFields[3].name = '合計原価'
 						// customFields[4].name = '受注日'
 						console.log(customFieldItems[index]);
-						// if(customFieldItems[index].idCustomField === customFields[0].id){
-						// 	storage.setItem("orderRepresentative", customFieldItems[index].value.number);
-						// 	console.log("set the representative");
-						// }	else if(customFieldItems[index].idCustomField === customFields[1].id){
-						// 	storage.setItem("orderCustomerRepresentative", customFieldItems[index].value.number);
-						// 	console.log("set the customer representative");
-						// } else if(customFieldItems[index].idCustomField === customFields[2].id){
-						// 	storage.setItem("orderTotalUnitPrice", customFieldItems[index].value.number);
-						// 	console.log("set the order's total unit-price");
-						// } else if(customFieldItems[index].idCustomField === customFields[3].id){
-						// 	storage.setItem("orderTotalCost", customFieldItems[index].value.number);
-						// 	console.log("set the order's total cost");
-						// } else if (customFieldItems[index].idCustomField === customFields[4].id){
-						// 	storage.setItem("dateReceivedOrder", customFieldItems[index].value.number);
-						// 	console.log("set the date received order");
-						// } else { console.log("invalid field"); }
+						if(customFieldItems[index].idCustomField === customFields[0].id){
+							storage.setItem("orderRepresentative", customFieldItems[index].value.text);
+							console.log("set the representative");
+						}	else if(customFieldItems[index].idCustomField === customFields[1].id){
+							storage.setItem("orderCustomerRepresentative", customFieldItems[index].value.text);
+							console.log("set the customer representative");
+						} else if(customFieldItems[index].idCustomField === customFields[2].id){
+							storage.setItem("orderTotalUnitPrice", customFieldItems[index].value.number);
+							console.log("set the order's total unit-price");
+						} else if(customFieldItems[index].idCustomField === customFields[3].id){
+							storage.setItem("orderTotalCost", customFieldItems[index].value.number);
+							console.log("set the order's total cost");
+						} else if (customFieldItems[index].idCustomField === customFields[4].id){
+							storage.setItem("dateReceivedOrder", customFieldItems[index].value.date);
+							console.log("set the date received order");
+						} else { console.log("invalid field"); }
 					}
 					console.log("finish the sub process");
 					deferred.resolve();
