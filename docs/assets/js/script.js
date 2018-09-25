@@ -43,7 +43,7 @@ const TrelloOrganization = {
 
 var productBoard = TrelloBoards.Product;
 var storage = sessionStorage;
-// var index = 0;
+var index = 0;
 
 var onProductBtnClick = function ( t, opts ){
 	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems' )
@@ -58,11 +58,8 @@ var onProductBtnClick = function ( t, opts ){
 			storage.setItem("numberOfMaterialAttachments",productCard.attachments.length);
 			Trello.get( `/boards/${productBoardInfo.id}/customFields` )
 			.then( function (customFields) {
-
-				console.log("define subDeferred");
 				var subDeferred = Trello.get( `/cards/${productCard.id}/customFieldItems` )
 				.done( function (customFieldItems){
-					console.log("start subDeferred");
 					var deferred = new $.Deferred();
 					for(index=0; index<customFieldItems.length; index++){
 						// customFields[0].name = '原価'
@@ -70,13 +67,11 @@ var onProductBtnClick = function ( t, opts ){
 						if(customFieldItems[index].idCustomField === customFields[0].id){
 							storage.setItem("productCost", customFieldItems[index].value.number);
 							console.log("set the cost");
-							// deferred.resolve();
 						} else if (customFieldItems[index].idCustomField === customFields[1].id){
 							storage.setItem("productUnitPrice", customFieldItems[index].value.number);
 							console.log("set the unit_price");
-						} else { console.log("invalid field"); }
+						} else { console.log("CustomFields error"); }
 					}
-					console.log("finish the sub process");
 					deferred.resolve();
 					return deferred;
 				}).fail( function(errorMsg) {
@@ -131,8 +126,17 @@ var onOrderBtnClick = function (t, ops){
 				console.log(boardLists);
 				// boardLists[0].name = 'ヤマト'
 				// boardLists[1].name = 'hoge'
-				// for(var index){
-				// 	if(boardLists[index].id === customFields[0].id){
+				for(index=0; index<boardList.length; index++){
+					if(boardLists[index].id === customFields[0].id){
+						console.log("This list is ヤマト");
+						storage.setItem("order_customer",boardLists[index].name);
+					} else if (boardLists[index].id === customFields[1].id) {
+						console.log("This list is hoge");
+						storage.setItem("order_customer",boardLists[index].name);
+					} else {
+						console.log("boardLists error");
+					}
+				}
 			});
 			Trello.get( `/boards/${orderBoardInfo.id}/customFields` )
 			.then( function (customFields) {
@@ -160,7 +164,7 @@ var onOrderBtnClick = function (t, ops){
 						} else if (customFieldItems[index].idCustomField === customFields[4].id){
 							storage.setItem("dateReceivedOrder", customFieldItems[index].value.date);
 							console.log("set the date received order");
-						} else { console.log("invalid field"); }
+						} else { console.log("CustomFields error"); }
 					}
 					deferred.resolve();
 					return deferred;
