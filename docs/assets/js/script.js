@@ -152,14 +152,9 @@ var onOrderBtnClick = function (t, ops){
 							storage.setItem("orderTotalCost", customFieldItems[index].value.number);
 							console.log("set the order's total cost");
 						} else if (customFieldItems[index].idCustomField === customFields[4].id){
-							var original = customFieldItems[index].value.date;
-							console.log(typeof(original));
-							// var year = original.getFullYear();
-							// var month = original.getMonth();
-							// var day = original.getDate();
-							// var date = year+month+day;
-							// console.log(date);
-							storage.setItem("dateReceivedOrder", customFieldItems[index].value.date);
+							var date = customFieldItems[index].value.date.split('T');
+							console.log(date);
+							storage.setItem("dateReceivedOrder", date[0]);
 							console.log("set the date received order");
 						} else { console.log("CustomFields error"); }
 					}
