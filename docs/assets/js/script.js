@@ -126,16 +126,14 @@ var onOrderBtnClick = function (t, ops){
 				console.log(boardLists);
 				// boardLists[0].name = 'ヤマト'
 				// boardLists[1].name = 'hoge'
-				for(index=0; index<boardList.length; index++){
-					if(boardLists[index].id === customFields[0].id){
+				for(index=0; index<boardLists.length; index++){
+					if(boardLists[index].id === orderCard.idList){
 						console.log("This list is ヤマト");
 						storage.setItem("order_customer",boardLists[index].name);
-					} else if (boardLists[index].id === customFields[1].id) {
+					} else if (boardLists[index].id === orderCard.idList) {
 						console.log("This list is hoge");
 						storage.setItem("order_customer",boardLists[index].name);
-					} else {
-						console.log("boardLists error");
-					}
+					} else { console.log("boardLists error"); }
 				}
 			});
 			Trello.get( `/boards/${orderBoardInfo.id}/customFields` )
