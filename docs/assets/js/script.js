@@ -98,6 +98,8 @@ var onProductBtnClick = function ( t, opts ){
 				// 	// 	console.log(data);
 				// 	// });
 				// });
+				console.log(productCard.attachments.length);
+				console.log(storage.getItem("numberOfAttachments"));
 				if( storage.getItem("numberOfAttachments")!==0 ){
 					for(index=productCard.attachments.length-1; index>=0; index--){
 						//console.log(productCard.attachments[index]);
