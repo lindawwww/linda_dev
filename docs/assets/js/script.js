@@ -43,7 +43,7 @@ const TrelloOrganization = {
 
 var productBoard = TrelloBoards.Product;
 var storage = sessionStorage;
-var index = 0;
+// var index = 0;
 
 var onProductBtnClick = function ( t, opts ){
 	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems' )
@@ -126,13 +126,13 @@ var onOrderBtnClick = function (t, ops){
 			storage.setItem("orderDescription", orderCard.desc);
 			storage.setItem("numberOfProductAttachments",orderCard.attachments.length);
 //-------
-			console.log(orderCard.idList);
 			Trello.get( `/boards/${orderBoardInfo.id}/lists` )
 			.then(function (boardLists){
 				console.log(boardLists);
 				// boardLists[0].name = 'ヤマト'
 				// boardLists[1].name = 'hoge'
-
+				// for(var index){
+				// 	if(boardLists[index].id === customFields[0].id){
 			});
 			Trello.get( `/boards/${orderBoardInfo.id}/customFields` )
 			.then( function (customFields) {
