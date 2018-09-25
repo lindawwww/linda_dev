@@ -1,21 +1,20 @@
 (function () {
   var storage = sessionStorage;
 
-  console.log(storage.getItem("orderName"));
-  document.getElementById("order_name").textContent = storage.getItem("orderName");
-  console.log(storage.getItem("orderRepresentative"));
-  document.getElementById("order_representative").textContent = storage.getItem("orderRepresentative");
-  console.log(storage.getItem("orderCustomerRepresentative"));
-  document.getElementById("order_customer_representative").textContent = storage.getItem("orderCustomerRepresentative");
-  console.log(storage.getItem("orderDescription"));
-  document.getElementById("order_description").textContent = storage.getItem("orderDescription");
-  console.log(storage.getItem("orderTotalCost"));
-  // document.getElementById("order_cost").innerHTML = storage.getItem("orderTotalCost");
-  $('#order_cost').append(storage.getItem("orderTotalCost"));
-  console.log(storage.getItem("orderTotalUnitPrice"));
-  document.getElementById("order_total_unit_price").innerHTML = storage.getItem("orderTotalUnitPrice");
-  console.log(storage.getItem("dateReceivedOrder"));
-  document.getElementById("date_received_order").textContent = storage.getItem("dateReceivedOrder");
+  console.log(storage.getItem('orderName'));
+  $('#order_name').text(storage.getItem('orderName'));
+  console.log(storage.getItem('orderRepresentative'));
+  $('#order_representative').text(storage.getItem('orderRepresentative'));
+  console.log(storage.getItem('orderCustomerRepresentative'));
+  $('#order_customer_representative').text(storage.getItem('orderCustomerRepresentative'));
+  console.log(storage.getItem('orderDescription'));
+  $('#order_description').text(storage.getItem('orderDescription'));
+  console.log(storage.getItem('orderTotalCost'));
+  $('#order_total_cost').text(storage.getItem('orderTotalCost'));
+  console.log(storage.getItem('orderTotalUnitPrice'));
+  $('#order_total_unit_price').text(storage.getItem('orderTotalUnitPrice'));
+  console.log(storage.getItem('dateReceivedOrder'));
+  $('#date_received_order').text(storage.getItem('dateReceivedOrder'));
 
 
   // var numberOfProductAttachments = storage.getItem("numberOfProductAttachments");
