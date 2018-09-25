@@ -42,7 +42,7 @@ const orderMetaContext = {
  * @param limit
  */
 const searchProduct = async function( dateQuery, wordQuery, listName = "", limit = 15 ) {
-	// debugger;
+	debugger;
 
 	let queries = [];
 
@@ -65,9 +65,9 @@ const searchProduct = async function( dateQuery, wordQuery, listName = "", limit
 
 
 	// クエリ実行
-	const productCards = await resolveQuery( queries );
+	const productCards = await resolveQuery( queries )
 
-	// debugger; // 条件にマッチした商品カードのみが抽出できているか
+	debugger; // 条件にマッチした商品カードのみが抽出できているか
 
 	if( productCards.length > 0 ) {
 		console.log( `Found: ${productCards.length}` );
@@ -247,7 +247,7 @@ const searchByCreatedDate = function( queries, query ) {
 const resolveQuery = function( queries ) {
 	return Promise.all( queries )
 	.then( ( res ) => {
-		// debugger;
+		debugger;
 		console.log( 'successfully search product' );
 		return intersectCards( res )
 	} )
@@ -318,7 +318,7 @@ const addOrderMeta = function( name, units, idCardSource, idList ) {
 		Trello.get( `/boards/${TrelloBoards[ env ].OrderMeta.id}/customFields` )
 		.then( function( customFields ) {
 			const unitsCustomFieldId = customFields[ 0 ].id;
-			// debugger;
+			debugger;
 
 			// 数量
 			Trello.put( `/card/${newOrderMeta.id}/customField/${unitsCustomFieldId}/item`, {
@@ -326,7 +326,7 @@ const addOrderMeta = function( name, units, idCardSource, idList ) {
 			} )
 			.then( res => console.log( res ) )
 
-			// debugger;
+			debugger;
 
 			// 注文カードに注文メタカードをアタッチする
 			t.attach( {
@@ -388,7 +388,7 @@ t.render( function() {
 				// 現在開いているカードのリストと同じ名前のOrderMetaのリストを探す。なければundefined。
 				return productList.name === orderList.name
 			} )
-			// debugger;
+			debugger;
 
 			// マッチするリストがなければ、新たに作成。
 			// （だが、商品カードが一つも登録されていないことは自明なので検索にカードが引っかかることはない）
@@ -430,7 +430,7 @@ t.render( function() {
 				// 現在開いているカードのリストと同じ名前のOrderMetaのリストを探す。なければundefined。
 				return orderMetaList.name === orderList.name
 			} )
-			// debugger;
+			debugger;
 
 			// マッチするリストがなければ、新たに作成。
 			// （だが、商品カードが一つも登録されていないことは自明なので検索にカードが引っかかることはない）

@@ -114,6 +114,9 @@ var onProductBtnClick = function ( t, opts ){
 var onOrderBtnClick = function (t, ops){
 	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems', 'idList' )
 	.then( function( orderCard ){
+		var context = t.getContext();
+    console.log(JSON.stringify(context, null, 2));
+		
 		Trello.get( `/cards/${orderCard.id}/board` )
 		.then( function (orderBoardInfo) {
 			storage.setItem("orderName", orderCard.name);
