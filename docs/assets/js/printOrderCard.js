@@ -13,10 +13,12 @@
   document.getElementById("order_cost").innerHTML = storage.getItem("orderTotalCost");
   console.log(storage.getItem("orderTotalUnitPrice"));
   document.getElementById("order_total_unit_price").innerHTML = storage.getItem("orderTotalUnitPrice");
+  console.log(storage.getItem("dateReceivedOrder"));
+  document.getElementById("date_received_order").innerHTML = storage.getItem("dateReceivedOrder");
 
 
-  var numberOfMaterialAttachments = storage.getItem("numberOfMaterialAttachments");
-  console.log(numberOfMaterialAttachments);
+  // var numberOfProductAttachments = storage.getItem("numberOfProductAttachments");
+  // console.log(numberOfProductAttachments);
 
   //
   // for(var i=0; i<numberOfMaterialAttachments; i++){
