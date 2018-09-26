@@ -30,10 +30,10 @@ const partsBoard = TrelloBoards.Parts;
 const informAdd = function(){
 	document.getElementById("time_hidden").style.display = "";
 	document.getElementById("tmp").style.display = "none";
-	setTimeout(function(){
-		document.getElementById("time_hidden").style.display = "none";
-		document.getElementById("tmp").style.display = "";
-	},10000);
+	// setTimeout(function(){
+	// 	document.getElementById("time_hidden").style.display = "none";
+	// 	document.getElementById("tmp").style.display = "";
+	// },3000);
 }
 
 const addParts = function( name, artisan, price, idList ) {
