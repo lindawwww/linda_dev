@@ -88,3 +88,6 @@ button{
   width: 50%;
   margin: 0 20% 0 30%;
 }
+#hidden{
+  display: none;
+}
