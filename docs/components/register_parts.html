@@ -5,9 +5,52 @@
 	<link rel="stylesheet" href="../assets/css/register_parts.css">
 </head>
 <body>
+
 <div class="container">
-	<div id="tmp">&nbsp;</div>
-	<div id="time_hidden">追加完了</div>
+<script type="text/javascript">
+$(function(){
+	$(".message:not(:animated)").fadeIn("slow",function(){
+		$(this).delay(10000).fadeOut("slow");
+	});
+	$(".close").click(function() {
+		$(".message").stop().fadeOut("slow");
+	});
+});
+</script>
+<div class="message">
+お知らせ等のメッセージを表示
+指定秒数後に枠ごと消えます
+このサンプルは10秒で消える設定にしてます
+<button class="close">お知らせを消す</button>
+<style>
+body{
+    background-color:#fff;
+}
+.message {
+    color: #fff;
+    padding: 20px;
+    background: #b2946c;
+    position: relative;
+    z-index: 10;
+    font-weight:bold;
+    font-size:20px;
+    text-align:center;
+}
+.message:before {
+    content: "";
+    position: absolute;
+    background: #b2946c;
+    margin: 4px;
+    border: 2px #fff solid;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    z-index: -10;
+}
+</style>
+</div>
 	<form id="parts_content">
 		<label for="parts_category_selector" class="left">素材のカテゴリを選択:</label>
 		<select name="parts_category" class="left" id="parts_category_selector"></select>
