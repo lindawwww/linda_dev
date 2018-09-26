@@ -29,7 +29,7 @@ const partsBoard = TrelloBoards.Parts;
 
 const informAdd = function(){
 		$(".message:not(:animated)").fadeIn("slow",function(){
-			$(this).delay(1000).fadeOut("slow");
+			$(this).delay(1300).fadeOut("slow");
 		});
 }
 
