@@ -30,10 +30,10 @@ const partsBoard = TrelloBoards.Parts;
 const informAdd = function(){
 	document.getElementById("time_hidden").style.display = "";
 	document.getElementById("tmp").style.display = "none";
-	// setTimeout(function(){
-	// 	document.getElementById("time_hidden").style.display = "none";
-	// 	document.getElementById("tmp").style.display = "";
-	// },3000);
+	setTimeout(function(){
+		document.getElementById("time_hidden").style.display = "none";
+		document.getElementById("tmp").style.display = "";
+	},3000);
 }
 
 const addParts = function( name, artisan, price, idList ) {
@@ -68,6 +68,7 @@ const addParts = function( name, artisan, price, idList ) {
 			} );
 			// Attach the productCard onto partsCard
 			attachProductCardOntoPartsCard( 'Parent Card', newParts.id );
+			document.getElementById('parts_content').reset();
 		} )
 		.catch( function( errorMsg ) {
 			console.log( errorMsg );
@@ -96,8 +97,7 @@ window.parts_content.addEventListener('submit', function(event){
 	const partsArtisan = window.parts_artisan_input.value;
 	let partsPrice = window.parts_price_input.value;
 	addParts( partsName, partsArtisan, partsPrice, window.parts_category_selector.value );
-
-	informAdd();
+	// informAdd();
 });
 
 window.complementation_btn.addEventListener("click", function(){
