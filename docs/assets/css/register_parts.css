@@ -66,13 +66,16 @@ button{
   float:left;
   margin-left: 165px;
 }
-#complementation_btn #add_btn:active{
+#complementation_btn:active{
   border-bottom: solid 2px #8cd460;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
-#complementation_btn #add_btn:hover{
-  opacity: 0.7;
+#add_btn:active{
+  border-bottom: solid 2px #8cd460;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
+#complementation_btn:hover{ opacity:0.7; }
+#add_btn:hover{ opacity: 0.7; }
 .container{
   width: 50%;
   margin: 0 20% 0 30%;
