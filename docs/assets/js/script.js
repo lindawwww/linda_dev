@@ -201,6 +201,7 @@ window.TrelloPowerUp.initialize( {
 					return t.modal( {
 						title: '素材 - 新規作成',
 						url   : 'docs/components/register_parts.html',
+						height: 600,
 						args  : { // popupを跨ぐと、グローバル変数としてアクセスできないのでargsで渡す
 							env   : TrelloOrganization.dev,
 							boards: TrelloBoards,
