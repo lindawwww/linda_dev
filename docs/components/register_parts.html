@@ -3,18 +3,12 @@
 	<link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
 	<link rel="stylesheet" href="../assets/css/print.min.css">
 	<link rel="stylesheet" href="../assets/css/register_parts.css">
-	<style>
-		select {
-			height : 30px;
-		}
-	</style>
 </head>
 <body>
-<!-- <div class="hidden" id="timeout">
-	<p>終わり</p>
-</div> -->
-<form id="parts_content">
+<div id="tmp">&nbsp;</div>
+<div id="time_hidden">追加完了</div>
 
+<form id="parts_content">
 	<label for="parts_category_selector" class="left">素材のカテゴリを選択:</label>
 	<select name="parts_category" class="left" id="parts_category_selector"></select>
 
@@ -27,11 +21,10 @@
 	<label for="parts_price_input" class="left">希望単価:</label>
 	<input type="text" name="parts_price" class="left" id="parts_price_input" />
 
-	<!--<label for="parts_description_input">その他備考:</label>-->
-	<!--<input type="text" name="parts_description" id="parts_description_input" />-->
-
-	<button type="submit" class="mod-primary right">Add</button>
+	<button type="submit" class="mod-primary right" id="add_btn">Add</button>
 </form>
+<button id="complementation_btn">Done</button>
+
 <script src="https://p.trellocdn.com/power-up.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="../assets/js/print.min.js"></script>

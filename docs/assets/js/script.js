@@ -53,8 +53,8 @@ var onProductBtnClick = function ( t, opts ){
 		.then( function (productBoardInfo) {
 
 			storage.setItem("productName", productCard.name);
-			productCard.desc = productCard.desc.replace(/\n/g, '<br>');
-			storage.setItem("productDescription", productCard.desc);
+			// productCard.desc = productCard.desc.replace(/\n/g, '<br>');
+			storage.setItem("productDescription", productCard.desc.replace(/\n/g, '<br>'));
 			storage.setItem("numberOfMaterialAttachments",productCard.attachments.length);
 			Trello.get( `/boards/${productBoardInfo.id}/customFields` )
 			.then( function (customFields) {
@@ -114,14 +114,12 @@ var onProductBtnClick = function ( t, opts ){
 var onOrderBtnClick = function (t, ops){
 	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems', 'idList' )
 	.then( function( orderCard ){
-		var context = t.getContext();
-    console.log(JSON.stringify(context, null, 2));
-		
+
 		Trello.get( `/cards/${orderCard.id}/board` )
 		.then( function (orderBoardInfo) {
 			storage.setItem("orderName", orderCard.name);
-			orderCard.desc = orderCard.desc.replace(/\n/g, '<br>');
-			storage.setItem("orderDescription", orderCard.desc);
+			// orderCard.desc = orderCard.desc.replace(/\n/g, '<br>');
+			storage.setItem("orderDescription", orderCard.desc.replace(/\n/g, '<br>'));
 			storage.setItem("numberOfProductAttachments",orderCard.attachments.length);
 
 			Trello.get( `/lists/${orderCard.idList}` )
@@ -179,8 +177,6 @@ var onOrderBtnClick = function (t, ops){
 					window.open('docs/components/printOrderCard.html','_blank')
 				});
 			});
-
-
 		});
 	});
 };
