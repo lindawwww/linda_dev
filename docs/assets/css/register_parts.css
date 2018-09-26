@@ -1,6 +1,4 @@
 #parts_content{
-  /* width: 50%;
-  margin: 0 25% 0 25%; */
   padding-top: 5px;
 }
 .left{
@@ -9,18 +7,16 @@
 button{
   all: initial;
 }
-.right{
-  display: inherit;
-  margin-left: auto;
-}
 #parts_category_selector{
   width: 50%;
+  height:35px;
+  line-height: 35px;
 }
 #parts_title_input{
-  width: 50%;
+  width: 60%;
 }
 #parts_artisan_input{
-  width: 50%;
+  width: 30%;
 }
 #parts_price_input{
   width: 20%;
@@ -53,7 +49,7 @@ button{
 }
 #add_btn{
   position: relative;
-  display: inline-block;
+  display: inline;
   padding: 0.25em 0.5em;
   text-decoration: none;
   color: #FFF;
@@ -64,11 +60,11 @@ button{
   font-weight: bold;
   user-select: none;
   cursor: pointer;
-  margin: 0 15% 0 35%;
+  float:left;
 }
 #complementation_btn{
   position: relative;
-  display: inline-block;
+  display: inline;
   padding: 0.25em 0.5em;
   text-decoration: none;
   color: #FFF;
@@ -79,7 +75,8 @@ button{
   font-weight: bold;
   user-select: none;
   cursor: pointer;
-  margin: 0 25% 0 25%;
+  float:left;
+  margin-left: 200px;
 }
 #complementation_btn:active{
   border-bottom: solid 2px #8cd460;
@@ -87,5 +84,5 @@ button{
 }
 .container{
   width: 50%;
-  margin: 0 25% 0 25%;
+  margin: 0 20% 0 30%;
 }
