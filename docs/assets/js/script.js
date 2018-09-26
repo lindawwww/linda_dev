@@ -224,6 +224,7 @@ window.TrelloPowerUp.initialize( {
 					return t.modal({
 						title: '商品検索 - 登録',
 						url   : 'docs/components/register_products.html',
+						height: 690,
 						args  : { // popupを跨ぐと、グローバル変数としてアクセスできないのでargsで渡す
 							env   : TrelloOrganization.dev,
 							boards: TrelloBoards,
