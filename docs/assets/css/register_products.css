@@ -31,7 +31,7 @@ button{
   margin-top: 15px;
   position: relative;
   display: inline;
-  padding: 0.55em 0.8em;
+  padding: 0.45em 0.8em;
   text-decoration: none;
   color: #FFF;
   background: #8cd460;
@@ -41,7 +41,7 @@ button{
   font-weight: bold;
   user-select: none;
   cursor: pointer;
-  float:right;
+  float:left;
 }
 #search_btn:active{
   border-bottom: solid 2px #8cd460;
