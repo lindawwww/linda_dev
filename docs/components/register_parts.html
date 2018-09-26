@@ -10,18 +10,13 @@
 <script type="text/javascript">
 $(function(){
 	$(".message:not(:animated)").fadeIn("slow",function(){
-		$(this).delay(10000).fadeOut("slow");
-	});
-	$(".close").click(function() {
-		$(".message").stop().fadeOut("slow");
+		$(this).delay(3000).fadeOut("slow");
 	});
 });
 </script>
 <div class="message">
 お知らせ等のメッセージを表示
 指定秒数後に枠ごと消えます
-このサンプルは10秒で消える設定にしてます
-<button class="close">お知らせを消す</button>
 <style>
 body{
     background-color:#fff;
