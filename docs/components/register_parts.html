@@ -5,26 +5,26 @@
 	<link rel="stylesheet" href="../assets/css/register_parts.css">
 </head>
 <body>
-<div id="tmp">&nbsp;</div>
-<div id="time_hidden">追加完了</div>
+<div class="container">
+	<div id="tmp">&nbsp;</div>
+	<div id="time_hidden">追加完了</div>>
+	<form id="parts_content">
+		<label for="parts_category_selector" class="left">素材のカテゴリを選択:</label>
+		<select name="parts_category" class="left" id="parts_category_selector"></select>
 
-<form id="parts_content">
-	<label for="parts_category_selector" class="left">素材のカテゴリを選択:</label>
-	<select name="parts_category" class="left" id="parts_category_selector"></select>
+		<label for="parts_title_input" class="left">素材のタイトル:</label>
+		<input type="text" name="parts_title" class="left" id="parts_title_input" />
 
-	<label for="parts_title_input" class="left">素材のタイトル:</label>
-	<input type="text" name="parts_title" class="left" id="parts_title_input" />
+		<label for="parts_artisan_input" class="left" >担当する職人:</label>
+		<input type="text" name="parts_artisan" class="left" id="parts_artisan_input" />
 
-	<label for="parts_artisan_input" class="left" >担当する職人:</label>
-	<input type="text" name="parts_artisan" class="left" id="parts_artisan_input" />
+		<label for="parts_price_input" class="left">希望単価:</label>
+		<input type="text" name="parts_price" class="left" id="parts_price_input" />
 
-	<label for="parts_price_input" class="left">希望単価:</label>
-	<input type="text" name="parts_price" class="left" id="parts_price_input" />
-
-	<button type="submit" class="mod-primary right" id="add_btn">Add</button>
-</form>
-<button id="complementation_btn">Done</button>
-
+		<button type="submit" class="mod-primary right" id="add_btn">Add</button>
+	</form>
+	<button id="complementation_btn">Done</button>
+</div>
 <script src="https://p.trellocdn.com/power-up.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="../assets/js/print.min.js"></script>
