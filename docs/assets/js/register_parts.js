@@ -28,7 +28,9 @@ const partsBoard = TrelloBoards.Parts;
 })();
 
 const informAdd = function(){
-
+		$(".message:not(:animated)").fadeIn("slow",function(){
+			$(this).delay(3000).fadeOut("slow");
+		});
 }
 
 const addParts = function( name, artisan, price, idList ) {
@@ -92,7 +94,7 @@ window.parts_content.addEventListener('submit', function(event){
 	const partsArtisan = window.parts_artisan_input.value;
 	let partsPrice = window.parts_price_input.value;
 	addParts( partsName, partsArtisan, partsPrice, window.parts_category_selector.value );
-	// informAdd();
+	informAdd();
 });
 
 window.complementation_btn.addEventListener("click", function(){
