@@ -49,6 +49,10 @@ button{
   cursor: pointer;
   float:left;
 }
+#add_btn:active{
+  border-bottom: solid 2px #8cd460;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
 #complementation_btn{
   margin-top: 15px;
   position: relative;
