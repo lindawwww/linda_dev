@@ -1,5 +1,5 @@
 #parts_content{
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .left{
   text-align: left;
@@ -23,7 +23,7 @@ button{
 }
 .message{
 	padding: 0.5em 1em;
-  margin: 10em 0;
+  margin: 8em 0;
   color: #8BC34A;
   background: #DCEDC8;
   border-top: solid 6px #8cd460;
