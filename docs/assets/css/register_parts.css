@@ -48,9 +48,10 @@ button{
 
 }
 #add_btn{
+  margin-top: 15px;
   position: relative;
   display: inline;
-  padding: 0.25em 0.5em;
+  padding: 0.55em 1.2em;
   text-decoration: none;
   color: #FFF;
   background: #8cd460;
@@ -63,9 +64,10 @@ button{
   float:left;
 }
 #complementation_btn{
+  margin-top: 15px;
   position: relative;
   display: inline;
-  padding: 0.25em 0.5em;
+  padding: 0.55em 0.8em;
   text-decoration: none;
   color: #FFF;
   background: #8cd460;
@@ -76,7 +78,7 @@ button{
   user-select: none;
   cursor: pointer;
   float:left;
-  margin-left: 200px;
+  margin-left: 165px;
 }
 #complementation_btn:active{
   border-bottom: solid 2px #8cd460;
