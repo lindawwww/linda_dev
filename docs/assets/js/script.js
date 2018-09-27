@@ -46,8 +46,14 @@ var storage = sessionStorage;
 var index = 0;
 
 var onProductBtnClick = function ( t, opts ){
+
 	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems' )
 	.then( function( productCard ) {
+		$.getJSON("https://trello.com/c/SukF4Irl/43-%E3%81%84%E3%81%AC.json", function(data) {
+			var ulObj = $("#demo");
+			var id = data.id;
+			console.log(id);
+		}
 		//setting up the board's id
 		Trello.get( `/cards/${productCard.id}/board` )
 		.then( function (productBoardInfo) {
@@ -99,7 +105,6 @@ var onProductBtnClick = function ( t, opts ){
 					for(index=productCard.attachments.length-1; index>=0; index--){
 						//console.log(productCard.attachments[index]);
 						console.log(productCard.attachments[index].name);
-						console.log(productCard.attachments[index].id);
 						storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name)
 					}
 				} else { console.log("No attachments!!");}
