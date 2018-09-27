@@ -55,27 +55,23 @@ var onProductBtnClick = function ( t, opts ){
 		.then( function (productBoardInfo) {
 
 			storage.setItem("productName", productCard.name);
-			// productCard.desc = productCard.desc.replace(/\n/g, '<br>');
 			storage.setItem("productDescription", productCard.desc.replace(/\n/g, '<br>'));
 			storage.setItem("numberOfMaterialAttachments",productCard.attachments.length);
 			Trello.get( `/boards/${productBoardInfo.id}/customFields` )
-			.then( function (customFields) {
+			.then( function (productCustomFields) {
 				Trello.get( `/cards/${productCard.id}/customFieldItems` )
-				.then( function (customFieldItems){
-					// var deferred = new $.Deferred();
-					for(index=0; index<customFieldItems.length; index++){
-						// customFields[0].name = '原価'
-						// customFields[1].name = '単価'
-						if(customFieldItems[index].idCustomField === customFields[0].id){
-							storage.setItem("productCost", customFieldItems[index].value.number);
-							console.log("set the cost");
-						} else if (customFieldItems[index].idCustomField === customFields[1].id){
-							storage.setItem("productUnitPrice", customFieldItems[index].value.number);
-							console.log("set the unit_price");
-						} else { console.log("CustomFields error"); }
+				.then( function (productCustomFieldItems){
+					for(index=0; index<productCustomFieldItems.length; index++){
+						// productCustomFields[0].name = '原価'
+						// productCustomFields[1].name = '単価'
+						if(productCustomFieldItems[index].idCustomField === productCustomFields[0].id){
+							storage.setItem("productCost", productCustomFieldItems[index].value.number);
+							console.log("set the product cost");
+						} else if (productCustomFieldItems[index].idCustomField === productCustomFields[1].id){
+							storage.setItem("productUnitPrice", productCustomFieldItems[index].value.number);
+							console.log("set the product unit-price");
+						} else { console.log("productCustomFields error"); }
 					}
-					// deferred.resolve();
-					// return deferred;
 					console.log(productCard.attachments.length);
 					console.log(storage.getItem("numberOfMaterialAttachments"));
 					if( storage.getItem("numberOfMaterialAttachments")!==0 ){
@@ -83,8 +79,28 @@ var onProductBtnClick = function ( t, opts ){
 							//console.log(productCard.attachments[index]);
 							var str = productCard.attachments[index].url.split("/");
 							$.getJSON("https://trello.com/1/cards/"+str[4]+"?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e", function(data) {
-								var id = data.id;
-								console.log(id);
+								var partsCardId = data.id;
+								console.log(partsCardId);
+								Trello.get( `/cards/${partsCardId}/board` )
+								.then( function (partsBoardInfo) {
+									Trello.get( `/boards/${productBoardInfo.id}/customFields` )
+									.then( function (partsCustomFields) {
+										Trello.get( `/cards/${partsCardId}/customFieldItems` )
+										.then( function (partsCustomFieldItems){
+											for(index=0; index<partsCustomFieldItems.length; index++){
+												// partsCustomFields[0].name = '職人名'
+												// partsCustomFields[1].name = '希望単価'
+												if(partsCustomFieldItems[index].idCustomField === partsCustomFields[0].id){
+													// storage.setItem("partsArtisan", partsCustomFieldItems[index].value.text);
+													console.log("set the parts artisan");
+												} else if (partsCustomFieldItems[index].idCustomField === partsCustomFields[1].id){
+													// storage.setItem("partsUnitPrice", partsCustomFieldItems[index].value.number);
+													console.log("set the parts unit-price");
+												} else { console.log("partsCustomFields error"); }
+											}
+										});
+									});
+								});
 							});
 							console.log(productCard.attachments[index].name);
 							console.log(productCard.attachments[index].url);
