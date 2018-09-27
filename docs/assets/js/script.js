@@ -105,7 +105,8 @@ var onProductBtnClick = function ( t, opts ){
 					for(index=productCard.attachments.length-1; index>=0; index--){
 						//console.log(productCard.attachments[index]);
 						var str = productCard.attachments[index].url.split("/");
-						$.getJSON("https://trello.com/1/cards/"+str[5]+"?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e", function(data) {
+						console.log(str[4])
+						$.getJSON("https://trello.com/1/cards/"+str[4]+"?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e", function(data) {
 							var ulObj = $("#demo");
 							var id = data.id;
 							console.log(id);
