@@ -99,6 +99,7 @@ var onProductBtnClick = function ( t, opts ){
 					for(index=productCard.attachments.length-1; index>=0; index--){
 						//console.log(productCard.attachments[index]);
 						console.log(productCard.attachments[index].name);
+						console.log(productCard.attachments[index].id);
 						storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name)
 					}
 				} else { console.log("No attachments!!");}
@@ -112,6 +113,7 @@ var onProductBtnClick = function ( t, opts ){
 	});//t.card
 };
 var onOrderBtnClick = function (t, ops){
+	// var commentJson = JSON.parse(commentRes.getContentText());
 	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems', 'idList' )
 	.then( function( orderCard ){
 
