@@ -53,7 +53,7 @@ var onProductBtnClick = function ( t, opts ){
 			var ulObj = $("#demo");
 			var id = data.id;
 			console.log(id);
-		}
+		});
 		//setting up the board's id
 		Trello.get( `/cards/${productCard.id}/board` )
 		.then( function (productBoardInfo) {
