@@ -49,11 +49,7 @@ var onProductBtnClick = function ( t, opts ){
 
 	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems' )
 	.then( function( productCard ) {
-		// $.getJSON("https://trello.com/1/cards/"+"SukF4Irl"+"?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e", function(data) {
-		// 	var ulObj = $("#demo");
-		// 	var id = data.id;
-		// 	console.log(id);
-		// });
+
 		//setting up the board's id
 		Trello.get( `/cards/${productCard.id}/board` )
 		.then( function (productBoardInfo) {
@@ -80,7 +76,6 @@ var onProductBtnClick = function ( t, opts ){
 					}
 					// deferred.resolve();
 					// return deferred;
-				}).then( function () {
 					console.log(productCard.attachments.length);
 					console.log(storage.getItem("numberOfMaterialAttachments"));
 					if( storage.getItem("numberOfMaterialAttachments")!==0 ){
