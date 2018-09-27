@@ -22,11 +22,11 @@
     $('#attachments').append(
       $('<tr>').append(
         $('<td>').addClass('attachment')
-        .append($name)
+        .append($name),
         $('<td>').addClass('attachment')
-        .append($artisan)
+        .append($artisan),
         $('<td>').addClass('attachment')
-        .append($unitPrice)
+        .append($unitPrice),
       )
     )
   }
