@@ -91,9 +91,11 @@ var onProductBtnClick = function ( t, opts ){
 												// partsCustomFields[1].name = '希望単価'
 												if(partsCustomFieldItems[index].idCustomField === partsCustomFields[0].id){
 													storage.setItem("partsArtisan"+index, partsCustomFieldItems[index].value.text);
+													console.log(partsCustomFieldItems[index].value.text);
 													console.log("set the parts artisan");
 												} else if (partsCustomFieldItems[index].idCustomField === partsCustomFields[1].id){
 													storage.setItem("partsUnitPrice"+index, partsCustomFieldItems[index].value.number);
+													console.log(partsCustomFieldItems[index].value.number);
 													console.log("set the parts unit-price");
 												} else { console.log("partsCustomFields error"); }
 											}
