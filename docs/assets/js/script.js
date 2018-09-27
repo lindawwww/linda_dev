@@ -93,14 +93,14 @@ var onProductBtnClick = function ( t, opts ){
 												if(partsCustomFieldItems[subindex].idCustomField === partsCustomFields[0].id){
 													if(partsCustomFieldItems[subindex].value.text !== null){
 														storage.setItem("partsArtisan"+index, partsCustomFieldItems[subindex].value.text);
-													} else { storage.setItem("partsArtisan"+index, null); console.log("this is null");}
+													} else { /*storage.setItem("partsArtisan"+index, null);*/ console.log("this is null");}
 														console.log(partsCustomFieldItems[subindex].value.text);
 														console.log("set the parts artisan");
 
 												} else if (partsCustomFieldItems[subindex].idCustomField === partsCustomFields[1].id){
 													if(partsCustomFieldItems[subindex].value.number !== null){
 														storage.setItem("partsUnitPrice"+index, partsCustomFieldItems[subindex].value.number);
-													} else { storage.setItem("partsUnitPrice"+index, null); console.log("this is null");}
+													} else { /*storage.setItem("partsUnitPrice"+index, null);*/ console.log("this is null");}
 													console.log(partsCustomFieldItems[subindex].value.number);
 													console.log("set the parts unit-price");
 
