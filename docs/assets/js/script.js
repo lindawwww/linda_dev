@@ -102,7 +102,10 @@ var onProductBtnClick = function ( t, opts ){
 				console.log(productCard.attachments.length);
 				console.log(storage.getItem("numberOfMaterialAttachments"));
 				if( storage.getItem("numberOfMaterialAttachments")!==0 ){
-					// var str = productCard.attachments[index].url.split("/");
+					var str = productCard.attachments[index].url.split("/");
+					for(index=0; index<str.length; index++){
+						console.log(str[index]);
+					}
 					for(index=productCard.attachments.length-1; index>=0; index--){
 						//console.log(productCard.attachments[index]);
 						console.log(productCard.attachments[index].name);
