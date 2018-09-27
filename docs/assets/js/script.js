@@ -89,17 +89,18 @@ var onProductBtnClick = function ( t, opts ){
 											for(subindex=0; subindex<partsCustomFieldItems.length; subindex++){
 												// partsCustomFields[0].name = '職人名'
 												// partsCustomFields[1].name = '希望単価'
+												console.log(partsCustomFieldItems[subindex]);
 												if(partsCustomFieldItems[subindex].idCustomField === partsCustomFields[0].id){
 													if(partsCustomFieldItems[subindex].value.text !== null){
 														storage.setItem("partsArtisan"+index, partsCustomFieldItems[subindex].value.text);
-													} else { storage.setItem("partsArtisan"+index, null);}
+													} else { storage.setItem("partsArtisan"+index, null); console.log("this is null");}
 														console.log(partsCustomFieldItems[subindex].value.text);
 														console.log("set the parts artisan");
 
 												} else if (partsCustomFieldItems[subindex].idCustomField === partsCustomFields[1].id){
 													if(partsCustomFieldItems[subindex].value.number !== null){
 														storage.setItem("partsUnitPrice"+index, partsCustomFieldItems[subindex].value.number);
-													} else { storage.setItem("partsUnitPrice"+index, null);}
+													} else { storage.setItem("partsUnitPrice"+index, null); console.log("this is null");}
 													console.log(partsCustomFieldItems[subindex].value.number);
 													console.log("set the parts unit-price");
 
