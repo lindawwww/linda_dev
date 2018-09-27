@@ -44,7 +44,7 @@ const TrelloOrganization = {
 var productBoard = TrelloBoards.Product;
 var storage = sessionStorage;
 var index = 0;
-
+var subindex = 0;
 var onProductBtnClick = function ( t, opts ){
 
 	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems' )
@@ -86,16 +86,16 @@ var onProductBtnClick = function ( t, opts ){
 									.then( function (partsCustomFields) {
 										Trello.get( `/cards/${partsCardId}/customFieldItems` )
 										.then( function (partsCustomFieldItems){
-											for(index=0; index<partsCustomFieldItems.length; index++){
+											for(subindex=0; subindex<partsCustomFieldItems.length; subindex++){
 												// partsCustomFields[0].name = '職人名'
 												// partsCustomFields[1].name = '希望単価'
-												if(partsCustomFieldItems[index].idCustomField === partsCustomFields[0].id){
-													storage.setItem("partsArtisan"+index, partsCustomFieldItems[index].value.text);
-													console.log(partsCustomFieldItems[index].value.text);
+												if(partsCustomFieldItems[subindex].idCustomField === partsCustomFields[0].id){
+													storage.setItem("partsArtisan"+subindex, partsCustomFieldItems[subindex].value.text);
+													console.log(partsCustomFieldItems[subindex].value.text);
 													console.log("set the parts artisan");
-												} else if (partsCustomFieldItems[index].idCustomField === partsCustomFields[1].id){
-													storage.setItem("partsUnitPrice"+index, partsCustomFieldItems[index].value.number);
-													console.log(partsCustomFieldItems[index].value.number);
+												} else if (partsCustomFieldItems[subindex].idCustomField === partsCustomFields[1].id){
+													storage.setItem("partsUnitPrice"+subindex, partsCustomFieldItems[subindex].value.number);
+													console.log(partsCustomFieldItems[subindex].value.number);
 													console.log("set the parts unit-price");
 												} else { console.log("partsCustomFields error"); }
 											}
