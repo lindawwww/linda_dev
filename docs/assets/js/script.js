@@ -66,7 +66,7 @@ var onProductBtnClick = function ( t, opts ){
 			.then( function (customFields) {
 				Trello.get( `/cards/${productCard.id}/customFieldItems` )
 				.then( function (customFieldItems){
-					var deferred = new $.Deferred();
+					// var deferred = new $.Deferred();
 					for(index=0; index<customFieldItems.length; index++){
 						// customFields[0].name = '原価'
 						// customFields[1].name = '単価'
@@ -91,7 +91,6 @@ var onProductBtnClick = function ( t, opts ){
 								var id = data.id;
 								console.log(id);
 							});
-							console.log(id);
 							console.log(productCard.attachments[index].name);
 							console.log(productCard.attachments[index].url);
 
