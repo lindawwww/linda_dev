@@ -90,13 +90,19 @@ var onProductBtnClick = function ( t, opts ){
 												// partsCustomFields[0].name = '職人名'
 												// partsCustomFields[1].name = '希望単価'
 												if(partsCustomFieldItems[subindex].idCustomField === partsCustomFields[0].id){
-													storage.setItem("partsArtisan"+subindex, partsCustomFieldItems[subindex].value.text);
-													console.log(partsCustomFieldItems[subindex].value.text);
-													console.log("set the parts artisan");
+													if(partsCustomFieldItems[subindex].value.text !== null){
+														storage.setItem("partsArtisan"+subindex, partsCustomFieldItems[subindex].value.text);
+													} else { storage.setItem("partsArtisan"+subindex, null);}
+														console.log(partsCustomFieldItems[subindex].value.text);
+														console.log("set the parts artisan");
+
 												} else if (partsCustomFieldItems[subindex].idCustomField === partsCustomFields[1].id){
-													storage.setItem("partsUnitPrice"+subindex, partsCustomFieldItems[subindex].value.number);
+													if(partsCustomFieldItems[subindex].value.number !== null){
+														storage.setItem("partsUnitPrice"+subindex, partsCustomFieldItems[subindex].value.number);
+													} else { storage.setItem("partsUnitPrice"+subindex, null);}
 													console.log(partsCustomFieldItems[subindex].value.number);
 													console.log("set the parts unit-price");
+													
 												} else { console.log("partsCustomFields error"); }
 											}
 										});
