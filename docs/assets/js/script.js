@@ -64,8 +64,8 @@ var onProductBtnClick = function ( t, opts ){
 			storage.setItem("numberOfMaterialAttachments",productCard.attachments.length);
 			Trello.get( `/boards/${productBoardInfo.id}/customFields` )
 			.then( function (customFields) {
-				var subDeferred = Trello.get( `/cards/${productCard.id}/customFieldItems` )
-				.done( function (customFieldItems){
+				Trello.get( `/cards/${productCard.id}/customFieldItems` )
+				.then( function (customFieldItems){
 					var deferred = new $.Deferred();
 					for(index=0; index<customFieldItems.length; index++){
 						// customFields[0].name = '原価'
@@ -78,49 +78,28 @@ var onProductBtnClick = function ( t, opts ){
 							console.log("set the unit_price");
 						} else { console.log("CustomFields error"); }
 					}
-					deferred.resolve();
-					return deferred;
-				}).fail( function(errorMsg) {
-					console.log( errorMsg );
-				});
-				// deferred can't turn over
-				//
-				// }).always(function (){
-				// 	console.log("finish the sub process");
-				// 	deferred.resolve();
-				// 	return deferred;
-				// });
-
-
-				// Trello.get(`/cards/${productCard.id}/attachments/${productCard.attachments[0].id}`)
-				// .then( function (attachmentInfo0) {
-				// 	//console.log(attachmentInfo0);
-				// 	// $.getJSON(attachmentInfo0.url+".json" , function(data) {
-				// 	// 	console.log(data);
-				// 	// });
-				// });
-				console.log(productCard.attachments.length);
-				console.log(storage.getItem("numberOfMaterialAttachments"));
-				if( storage.getItem("numberOfMaterialAttachments")!==0 ){
-					for(index=productCard.attachments.length-1; index>=0; index--){
-						//console.log(productCard.attachments[index]);
-						var str = productCard.attachments[index].url.split("/");
-						console.log(str[4])
-						$.getJSON("https://trello.com/1/cards/"+str[4]+"?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e", function(data) {
-							var ulObj = $("#demo");
-							var id = data.id;
+					// deferred.resolve();
+					// return deferred;
+				}).then( function () {
+					console.log(productCard.attachments.length);
+					console.log(storage.getItem("numberOfMaterialAttachments"));
+					if( storage.getItem("numberOfMaterialAttachments")!==0 ){
+						for(index=productCard.attachments.length-1; index>=0; index--){
+							//console.log(productCard.attachments[index]);
+							var str = productCard.attachments[index].url.split("/");
+							$.getJSON("https://trello.com/1/cards/"+str[4]+"?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e", function(data) {
+								var id = data.id;
+								console.log(id);
+							});
 							console.log(id);
-						});
-						console.log(productCard.attachments[index].name);
-						console.log(productCard.attachments[index].url);
+							console.log(productCard.attachments[index].name);
+							console.log(productCard.attachments[index].url);
 
-						storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name)
-					}
-				} else { console.log("No attachments!!");}
-				console.log("subDeferred done");
-				//it works when subDeferred is done
-				subDeferred.done( function(){
-					window.open('docs/components/printProductCard.html','_blank')
+							storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name)
+						}
+					} else { console.log("No attachments!!");}
+				}).then( function (){
+					window.open('docs/components/printProductCard.html','_blank');
 				});
 			});
 		});
