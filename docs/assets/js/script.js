@@ -92,18 +92,22 @@ var onProductBtnClick = function ( t, opts ){
 												console.log(partsCustomFieldItems[subindex]);
 												if(partsCustomFieldItems[subindex].idCustomField === partsCustomFields[0].id){
 													if(partsCustomFieldItems[subindex].value.text !== null){
+														console.log("This is index: "+index);
+														console.log("This is subindex: "+subindex);
 														storage.setItem("partsArtisan"+index, partsCustomFieldItems[subindex].value.text);
+														console.log(storage.getItem("partsArtisan"+index));
+														console.log("set the parts artisan");
 													} else { /*storage.setItem("partsArtisan"+index, null);*/ console.log("this is null");}
 														console.log(partsCustomFieldItems[subindex].value.text);
-														console.log("set the parts artisan");
-
 												} else if (partsCustomFieldItems[subindex].idCustomField === partsCustomFields[1].id){
 													if(partsCustomFieldItems[subindex].value.number !== null){
+														console.log("This is index: "+index);
+														console.log("This is subindex: "+subindex);
 														storage.setItem("partsUnitPrice"+index, partsCustomFieldItems[subindex].value.number);
+														console.log(storage.getItem("partsUnitPrice"+index));
+														console.log("set the parts unit-price");
 													} else { /*storage.setItem("partsUnitPrice"+index, null);*/ console.log("this is null");}
 													console.log(partsCustomFieldItems[subindex].value.number);
-													console.log("set the parts unit-price");
-
 												} else { console.log("partsCustomFields error"); }
 											}
 										});
