@@ -72,9 +72,8 @@ var onProductBtnClick = function ( t, opts ){
 							console.log("set the product unit-price");
 						} else { console.log("productCustomFields error"); }
 					}
-					console.log(productCard.attachments.length);
 					console.log(storage.getItem("numberOfMaterialAttachments"));
-					if( storage.getItem("numberOfMaterialAttachments")!==0 ){
+					if( storage.getItem("numberOfMaterialAttachments")!=='0' ){
 						for(index=productCard.attachments.length-1; index>=0; index--){
 							//console.log(productCard.attachments[index]);
 							var str = productCard.attachments[index].url.split("/");
