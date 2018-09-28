@@ -114,7 +114,7 @@ var onProductBtnClick = function ( t, opts ){
 												console.log(productCard.attachments[index].url);
 
 												storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name)
-											}).then( function (){
+											}).done( function (){
 												if(storage.getItem("windowFlag")==="CLOSED"){
 													window.open('docs/components/printProductCard.html','_blank');
 													storage.setItem("windowFlag","OPEN");
