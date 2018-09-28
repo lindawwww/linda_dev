@@ -46,7 +46,7 @@ var storage = sessionStorage;
 var index = 0;
 var subindex = 0;
 var onProductBtnClick = function ( t, opts ){
-
+	storage.setItem("windowFlag","CLOSED");
 	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems' )
 	.then( function( productCard ) {
 
@@ -115,6 +115,11 @@ var onProductBtnClick = function ( t, opts ){
 												console.log(productCard.attachments[index].url);
 
 												storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name)
+											}).then( function (){
+												if(storage.getItem("windowFlag")==="CLOSED"){
+													window.open('docs/components/printProductCard.html','_blank');
+													storage.setItem("windowFlag","OPEN");
+												} else { console.log("Already opened"); }
 											});
 										});
 									});
@@ -122,8 +127,6 @@ var onProductBtnClick = function ( t, opts ){
 							})(index);
 						}
 					} else { console.log("No attachments!!");}
-				}).then( function (){
-					window.open('docs/components/printProductCard.html','_blank');
 				});
 			});
 		});
