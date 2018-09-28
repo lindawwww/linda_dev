@@ -84,8 +84,10 @@ var onProductBtnClick = function ( t, opts ){
 									.then( function (partsBoardInfo) {
 										Trello.get( `/boards/${partsBoardInfo.id}/customFields` )
 										.then( function (partsCustomFields) {
-											Trello.get( `/cards/${partsCardId}/customFieldItems` )
+											var deferred = Trello.get( `/cards/${partsCardId}/customFieldItems` )
 											.then( function (partsCustomFieldItems){
+												var deferred = new $.Deferred();
+
 												for(subindex=0; subindex<partsCustomFieldItems.length; subindex++){
 													// partsCustomFields[0].name = '職人名'
 													// partsCustomFields[1].name = '希望単価'
@@ -110,11 +112,15 @@ var onProductBtnClick = function ( t, opts ){
 														console.log(partsCustomFieldItems[subindex].value.number);
 													} else { console.log("partsCustomFields error"); }
 												}// end of subindex
+
 												console.log(productCard.attachments[index].name);
 												console.log(productCard.attachments[index].url);
 
 												storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name)
-											}).then( function (){
+												deferred.resolve();
+												return deferred;
+											});
+											deferred.done( function (){
 												if(storage.getItem("windowFlag")==="CLOSED"){
 													window.open('docs/components/printProductCard.html','_blank');
 													storage.setItem("windowFlag","OPEN");
