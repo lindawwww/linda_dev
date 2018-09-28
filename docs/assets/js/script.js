@@ -111,23 +111,23 @@ var onProductBtnClick = function ( t, opts ){
 														console.log(partsCustomFieldItems[subindex].value.number);
 													} else { console.log("partsCustomFields error"); }
 												}// end of subindex
+												console.log(productCard.attachments[index].name);
+												console.log(productCard.attachments[index].url);
+
+												storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name)
+											}).then( function (){
+												window.open('docs/components/printProductCard.html','_blank');
 											});
 										});
 									});
 								});
 							})(index);
-							console.log(productCard.attachments[index].name);
-							console.log(productCard.attachments[index].url);
-
-							storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name)
 						}
 					} else { console.log("No attachments!!");}
 				});
 			});
 		});
-	}).then( function (){ // when end of t.card
-		window.open('docs/components/printProductCard.html','_blank');
-	});
+	});//t.card
 };
 var onOrderBtnClick = function (t, ops){
 	// var commentJson = JSON.parse(commentRes.getContentText());
