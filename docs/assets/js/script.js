@@ -115,8 +115,6 @@ var onProductBtnClick = function ( t, opts ){
 												console.log(productCard.attachments[index].url);
 
 												storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name)
-											}).then( function (){
-												window.open('docs/components/printProductCard.html','_blank');
 											});
 										});
 									});
@@ -124,6 +122,8 @@ var onProductBtnClick = function ( t, opts ){
 							})(index);
 						}
 					} else { console.log("No attachments!!");}
+				}).then( function (){
+					window.open('docs/components/printProductCard.html','_blank');
 				});
 			});
 		});
