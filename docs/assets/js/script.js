@@ -122,12 +122,12 @@ var onProductBtnClick = function ( t, opts ){
 							storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name)
 						}
 					} else { console.log("No attachments!!");}
-				}).then( function (){
-					window.open('docs/components/printProductCard.html','_blank');
 				});
 			});
 		});
-	});//t.card
+	}).then( function (){ // when end of t.card
+		window.open('docs/components/printProductCard.html','_blank');
+	});
 };
 var onOrderBtnClick = function (t, ops){
 	// var commentJson = JSON.parse(commentRes.getContentText());
