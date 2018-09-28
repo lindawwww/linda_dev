@@ -110,6 +110,7 @@ var onProductBtnClick = function ( t, opts ){
 														console.log(partsCustomFieldItems[subindex].value.number);
 													} else { console.log("partsCustomFields error"); }
 												}// end of subindex
+												console.log(index);
 												console.log(productCard.attachments[index].name);
 												console.log(productCard.attachments[index].url);
 
