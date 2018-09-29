@@ -61,6 +61,7 @@ var onProductBtnClick = function ( t, opts ){
 			.then( function (productCustomFields) {
 				Trello.get( `/cards/${productCard.id}/customFieldItems` )
 				.then( function (productCustomFieldItems){
+					var flag=0;
 					for(index=0; index<productCustomFieldItems.length; index++){
 						// productCustomFields[0].name = '原価'
 						// productCustomFields[1].name = '単価'
@@ -75,59 +76,68 @@ var onProductBtnClick = function ( t, opts ){
 					console.log("number of attachments: "+storage.getItem("numberOfMaterialAttachments"));
 					if( storage.getItem("numberOfMaterialAttachments")!=='0' ){
 						for(index=productCard.attachments.length-1; index>=0; index--){
-							//console.log(productCard.attachments[index]);
 							var str = productCard.attachments[index].url.split("/");
-							(function(index){
-								$.getJSON("https://trello.com/1/cards/"+str[4]+"?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e", function(data) {
-									var partsCardId = data.id;
+							$.ajaxSetup({async: false});
+							$.getJSON("https://trello.com/1/cards/"+str[4]+"?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e", function(data){
+								console.log("correct index??"+index);
+								var partsCardId = data.id;
+								(function(index,deferrd){
 									Trello.get( `/cards/${partsCardId}/board` )
 									.then( function (partsBoardInfo) {
+									console.log("layer1 index: "+index);
 										Trello.get( `/boards/${partsBoardInfo.id}/customFields` )
 										.then( function (partsCustomFields) {
+										console.log("layer2 index: "+index);
 											Trello.get( `/cards/${partsCardId}/customFieldItems` )
 											.then( function (partsCustomFieldItems){
+												console.log("layer3 index: "+index+"---------------");
+												console.log(productCard.attachments[index].name);
+												console.log(productCard.attachments[index].url);
+												storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name);
 												for(subindex=0; subindex<partsCustomFieldItems.length; subindex++){
 													// partsCustomFields[0].name = '職人名'
 													// partsCustomFields[1].name = '希望単価'
-													console.log(partsCustomFieldItems[subindex]);
 													if(partsCustomFieldItems[subindex].idCustomField === partsCustomFields[0].id){
 														if(partsCustomFieldItems[subindex].value.text !== null){
-															console.log("This is index: "+index);
-															console.log("This is subindex: "+subindex);
 															storage.setItem("partsArtisan"+index, partsCustomFieldItems[subindex].value.text);
 															console.log(storage.getItem("partsArtisan"+index));
 															console.log("set the parts artisan");
 														} else { /*storage.setItem("partsArtisan"+index, null);*/ console.log("this is null");}
-															console.log(partsCustomFieldItems[subindex].value.text);
 													} else if (partsCustomFieldItems[subindex].idCustomField === partsCustomFields[1].id){
 														if(partsCustomFieldItems[subindex].value.number !== null){
-															console.log("This is index: "+index);
-															console.log("This is subindex: "+subindex);
 															storage.setItem("partsUnitPrice"+index, partsCustomFieldItems[subindex].value.number);
 															console.log(storage.getItem("partsUnitPrice"+index));
 															console.log("set the parts unit-price");
 														} else { /*storage.setItem("partsUnitPrice"+index, null);*/ console.log("this is null");}
-														console.log(partsCustomFieldItems[subindex].value.number);
 													} else { console.log("partsCustomFields error"); }
+													if(index===0 && subindex===1){
+														console.log("FINISHED THE PROCESS!!");
+														flag=1;
+														storage.setItem("Flag",flag);
+													}
 												}// end of subindex
-												console.log(index);
-												console.log(productCard.attachments[index].name);
-												console.log(productCard.attachments[index].url);
-
-												storage.setItem("attachmentMaterialName"+index,productCard.attachments[index].name)
-											}).done( function (){
-												if(storage.getItem("windowFlag")==="CLOSED"){
-													window.open('docs/components/printProductCard.html','_blank');
-													storage.setItem("windowFlag","OPEN");
-												} else { console.log("Already opened"); }
 											});
 										});
 									});
-								});
-							})(index);
+								})(index);
+							});
 						}
 					} else { console.log("No attachments!!");}
+// 					console.log("FINISHED THE PROCESS!!");
+// 					deferred.resolve();
+// 					return deferred;
+				}).done(function (){
+					console.log(typeof storage.getItem("Flag"));
+					if(storage.getItem("Flag")==='1'){
+						window.open('docs/components/printProductCard.html','_blank');
+					}
 				});
+
+// 				deferred.done( function (){
+// 				if(storage.getItem("windowFlag")==="CLOSED"){
+// 					window.open('docs/components/printProductCard.html','_blank');
+// 					storage.setItem("windowFlag","OPEN");
+// 				} else { console.log("Already opened"); }});
 			});
 		});
 	});//t.card
