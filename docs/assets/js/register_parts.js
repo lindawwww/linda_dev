@@ -91,8 +91,8 @@ const attachProductCardOntoPartsCard = function( name, newPartsCardId ) {
 window.parts_content.addEventListener('submit', function(event){
 	event.preventDefault();
 	const partsName = window.parts_title_input.value || '新しい素材';
-	const partsArtisan = window.parts_artisan_input.value || '　';
-	let partsPrice = window.parts_price_input.value || 0;
+	const partsArtisan = window.parts_artisan_input.value;
+	let partsPrice = window.parts_price_input.value;
 	addParts( partsName, partsArtisan, partsPrice, window.parts_category_selector.value );
 	informAdd();
 });
