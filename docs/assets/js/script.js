@@ -46,7 +46,6 @@ var storage = sessionStorage;
 var index = 0;
 var subindex = 0;
 var onProductBtnClick = function ( t, opts ){
-	storage.setItem("windowFlag","CLOSED");
 	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems' )
 	.then( function( productCard ) {
 
@@ -75,7 +74,6 @@ var onProductBtnClick = function ( t, opts ){
 					}
 					console.log("number of attachments: "+storage.getItem("numberOfMaterialAttachments"));
 					if( storage.getItem("numberOfMaterialAttachments")!=='0' ){
-						console.log(storage.getItem("Flag"));
 						for(index=productCard.attachments.length-1; index>=0; index--){
 							var str = productCard.attachments[index].url.split("/");
 							$.ajaxSetup({async: false});
@@ -128,12 +126,6 @@ var onProductBtnClick = function ( t, opts ){
 					console.log("Done the deferred!!");
 					window.open('docs/components/printProductCard.html','_blank');
 				});
-
-// 				deferred.done( function (){
-// 				if(storage.getItem("windowFlag")==="CLOSED"){
-// 					window.open('docs/components/printProductCard.html','_blank');
-// 					storage.setItem("windowFlag","OPEN");
-// 				} else { console.log("Already opened"); }});
 			});
 		});
 	});//t.card
