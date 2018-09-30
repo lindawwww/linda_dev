@@ -196,8 +196,8 @@ var onOrderBtnClick = function (t, ops){
 										Trello.get( `/cards/${productCardId}/customFieldItems` )
 										.then( function (productCustomFieldItems){
 											console.log("layer3 index: "+index+"---------------");
-											console.log(orderCard.attachments[index]);
-											console.log(orderCard.attachments[index].url);
+											// console.log(orderCard.attachments[index]);
+											// console.log(orderCard.attachments[index].url);
 											storage.setItem("attachmentProductName"+index,orderCard.attachments[index].name);
 											for(subindex=0; subindex<productCustomFieldItems.length; subindex++){
 												// productCustomFields[0].name = '原価'
@@ -219,7 +219,7 @@ var onOrderBtnClick = function (t, ops){
 														console.log(storage.getItem("numberOfProduct"+index));
 													} else {console.log("this is null");}
 												} else { console.log("productCustomFields error"); }
-												if(index===0 && subindex===1){
+												if(index===0 && subindex===2){
 													console.log("FINISHED THE PROCESS!!");
 													deferred.resolve();
 												}
