@@ -61,7 +61,6 @@ var onProductBtnClick = function ( t, opts ){
 			.then( function (productCustomFields) {
 				Trello.get( `/cards/${productCard.id}/customFieldItems` )
 				.then( function (productCustomFieldItems){
-					var flag=0;
 					for(index=0; index<productCustomFieldItems.length; index++){
 						// productCustomFields[0].name = '原価'
 						// productCustomFields[1].name = '単価'
