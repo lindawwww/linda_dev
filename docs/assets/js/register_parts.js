@@ -49,15 +49,18 @@ const addParts = function( name, artisan, price, idList ) {
 			console.log("Hi from the function to get customFields");
 			const artisanCustomFieldId = customFields[ 0 ].id;
 			const priceCustomFieldId = customFields[ 1 ].id;
-
-			Trello.put( `/card/${newParts.id}/customField/${artisanCustomFieldId}/item`, {
-				value: { text: artisan }
-			} )
-			.then( res => console.log( res ) );
-			Trello.put( `/card/${newParts.id}/customField/${priceCustomFieldId}/item`, {
-				value: { number: price }
-			} )
-			.then( res => console.log( res ) );
+			if(artisan !== ''){
+				Trello.put( `/card/${newParts.id}/customField/${artisanCustomFieldId}/item`, {
+					value: { text: artisan }
+				} )
+				.then( res => console.log( res ) );
+			} else { console.log("empty the artisan"); }
+			if(price !== ''){
+				Trello.put( `/card/${newParts.id}/customField/${priceCustomFieldId}/item`, {
+					value: { number: price }
+				} )
+				.then( res => console.log( res ) );
+			} else { console.log("empty the price"); }
 			// Attach the parts card onto this card
 			t.attach( {
 				name: name,
@@ -65,6 +68,7 @@ const addParts = function( name, artisan, price, idList ) {
 			} );
 			// Attach the productCard onto partsCard
 			attachProductCardOntoPartsCard( 'Parent Card', newParts.id );
+			informAdd();
 			document.getElementById('parts_content').reset();
 		} )
 		.catch( function( errorMsg ) {
@@ -94,7 +98,6 @@ window.parts_content.addEventListener('submit', function(event){
 	const partsArtisan = window.parts_artisan_input.value;
 	let partsPrice = window.parts_price_input.value;
 	addParts( partsName, partsArtisan, partsPrice, window.parts_category_selector.value );
-	informAdd();
 });
 
 window.complementation_btn.addEventListener("click", function(){
