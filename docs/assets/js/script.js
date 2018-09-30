@@ -59,8 +59,9 @@ var onProductBtnClick = function ( t, opts ){
 			storage.setItem("numberOfMaterialAttachments",productCard.attachments.length);
 			Trello.get( `/boards/${productBoardInfo.id}/customFields` )
 			.then( function (productCustomFields) {
-				Trello.get( `/cards/${productCard.id}/customFieldItems` )
+				var promise = Trello.get( `/cards/${productCard.id}/customFieldItems` )
 				.then( function (productCustomFieldItems){
+					var deferred = $.Deferred();
 					for(index=0; index<productCustomFieldItems.length; index++){
 						// productCustomFields[0].name = '原価'
 						// productCustomFields[1].name = '単価'
@@ -74,19 +75,19 @@ var onProductBtnClick = function ( t, opts ){
 					}
 					console.log("number of attachments: "+storage.getItem("numberOfMaterialAttachments"));
 					if( storage.getItem("numberOfMaterialAttachments")!=='0' ){
+						console.log(storage.getItem("Flag"));
 						for(index=productCard.attachments.length-1; index>=0; index--){
 							var str = productCard.attachments[index].url.split("/");
 							$.ajaxSetup({async: false});
 							$.getJSON("https://trello.com/1/cards/"+str[4]+"?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e", function(data){
-								console.log("correct index??"+index);
 								var partsCardId = data.id;
-								(function(index,deferrd){
+								(function(index, deferred){
 									Trello.get( `/cards/${partsCardId}/board` )
 									.then( function (partsBoardInfo) {
-									console.log("layer1 index: "+index);
+// 									console.log("layer1 index: "+index);
 										Trello.get( `/boards/${partsBoardInfo.id}/customFields` )
 										.then( function (partsCustomFields) {
-										console.log("layer2 index: "+index);
+// 										console.log("layer2 index: "+index);
 											Trello.get( `/cards/${partsCardId}/customFieldItems` )
 											.then( function (partsCustomFieldItems){
 												console.log("layer3 index: "+index+"---------------");
@@ -100,36 +101,32 @@ var onProductBtnClick = function ( t, opts ){
 														if(partsCustomFieldItems[subindex].value.text !== null){
 															storage.setItem("partsArtisan"+index, partsCustomFieldItems[subindex].value.text);
 															console.log(storage.getItem("partsArtisan"+index));
-															console.log("set the parts artisan");
+// 															console.log("set the parts artisan");
 														} else { /*storage.setItem("partsArtisan"+index, null);*/ console.log("this is null");}
 													} else if (partsCustomFieldItems[subindex].idCustomField === partsCustomFields[1].id){
 														if(partsCustomFieldItems[subindex].value.number !== null){
 															storage.setItem("partsUnitPrice"+index, partsCustomFieldItems[subindex].value.number);
 															console.log(storage.getItem("partsUnitPrice"+index));
-															console.log("set the parts unit-price");
+// 															console.log("set the parts unit-price");
 														} else { /*storage.setItem("partsUnitPrice"+index, null);*/ console.log("this is null");}
 													} else { console.log("partsCustomFields error"); }
 													if(index===0 && subindex===1){
 														console.log("FINISHED THE PROCESS!!");
-														flag=1;
-														storage.setItem("Flag",flag);
+														deferred.resolve();
 													}
 												}// end of subindex
 											});
 										});
 									});
-								})(index);
+								})(index, deferred);
 							});
 						}
 					} else { console.log("No attachments!!");}
-// 					console.log("FINISHED THE PROCESS!!");
-// 					deferred.resolve();
-// 					return deferred;
-				}).done(function (){
-					console.log(typeof storage.getItem("Flag"));
-					if(storage.getItem("Flag")==='1'){
-						window.open('docs/components/printProductCard.html','_blank');
-					}
+					return deferred.promise();
+				});
+				promise.done(function (){
+					console.log("Done the deferred!!");
+					window.open('docs/components/printProductCard.html','_blank');
 				});
 
 // 				deferred.done( function (){
