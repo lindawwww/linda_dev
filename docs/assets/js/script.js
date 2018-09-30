@@ -126,7 +126,7 @@ var onProductBtnClick = function ( t, opts ){
 				});
 				promise.done(function (){
 					console.log("Done the deferred!!");
-					window.open('docs/components/printProductCard.html','_blank');
+					window.open('docs/components/print_product_card.html','_blank');
 				});
 			});
 		});
@@ -235,7 +235,7 @@ var onOrderBtnClick = function (t, ops){
 			});
 			promise.done( function(){
 				console.log("Done the deferred!!");
-				window.open('docs/components/printOrderCard.html','_blank')
+				window.open('docs/components/print_order_card.html','_blank')
 			});
 		});
 	}); // t.card
@@ -293,23 +293,6 @@ window.TrelloPowerUp.initialize( {
 					});
 				}
 			}];
-		} else if( board === TrelloBoards.Parts.id ) { // Order Board Button
-			console.log( 'parts board' );
-			return [ {
-				icon    : TrelloIcons.CONTROLLER,
-				text    : '素材を追加',
-				callback: function( t ) {
-					if( confirm( '素材を登録しますか?' ) ) {
-						//素材カードを完了時、親である商品カードへ遷移 (アタッチされている商品カード)
-						t.card( 'attachments' )
-						.then( function( card ) {
-							t.navigate( {
-								url: card.attachments[ 0 ].url
-							} );
-						} );
-					}
-				}
-			} ];
 		} else { console.log( 'other board' ); }
 	}
 } );
