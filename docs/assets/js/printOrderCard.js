@@ -19,19 +19,31 @@
   $('#date_received_order').text(storage.getItem('dateReceivedOrder'));
 
 
-  // var numberOfProductAttachments = storage.getItem("numberOfProductAttachments");
-  // console.log(numberOfProductAttachments);
+  var numberOfProductAttachments = storage.getItem("numberOfProductAttachments");
+  console.log(numberOfProductAttachments);
 
-  //
-  // for(var i=0; i<numberOfMaterialAttachments; i++){
-  //   var $name = storage.getItem('attachmentMaterialName'+i);
-  //   console.log($name);
-  //   $('#attachments').append(
-  //     $('<tr>').append(
-  //       $('<td>').addClass('attachment')
-  //       .append($name)
-  //     )
-  //   )
-  // }
+
+  for(var i=0; i<numberOfProductAttachments; i++){
+    var $name = storage.getItem('attachmentProductName'+i);
+    var $cost = storage.getItem('productCost'+i);
+    var $unitPrice = storage.getItem('productUnitPrice'+i);
+    var $numberOfProduct = storage.getItem('numberOfProduct'+i);
+    console.log($name);
+    console.log($cost);
+    console.log($unitPrice);
+    console.log($numberOfProduct);
+    $('#attachments').append(
+      $('<tr>').append(
+        $('<td>').addClass('attachment')
+        .append($name),
+        $('<td>').addClass('attachment')
+        .append($cost),
+        $('<td>').addClass('attachment')
+        .append($unitPrice),
+        $('<td>').addClass('attachment')
+        .append($numberOfProduct),
+      )
+    )
+  }
 
 })();

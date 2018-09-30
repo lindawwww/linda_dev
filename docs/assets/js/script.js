@@ -61,9 +61,13 @@ var onProductBtnClick = function ( t, opts ){
 				var promise = Trello.get( `/cards/${productCard.id}/customFieldItems` )
 				.then( function (productCustomFieldItems){
 					var deferred = $.Deferred();
+					console.log(productCustomFieldItems);
 					for(index=0; index<productCustomFieldItems.length; index++){
 						// productCustomFields[0].name = '原価'
 						// productCustomFields[1].name = '単価'
+						console.log(productCustomFieldItems[index].idCustomField);
+						console.log(productCustomFields[0]);
+						console.log(productCustomFields[1]);
 						if(productCustomFieldItems[index].idCustomField === productCustomFields[0].id){
 							storage.setItem("productCost", productCustomFieldItems[index].value.number);
 							console.log("set the product cost");
@@ -99,14 +103,12 @@ var onProductBtnClick = function ( t, opts ){
 														if(partsCustomFieldItems[subindex].value.text !== null){
 															storage.setItem("partsArtisan"+index, partsCustomFieldItems[subindex].value.text);
 															console.log(storage.getItem("partsArtisan"+index));
-// 															console.log("set the parts artisan");
-														} else { /*storage.setItem("partsArtisan"+index, null);*/ console.log("this is null");}
+														} else {console.log("this is null");}
 													} else if (partsCustomFieldItems[subindex].idCustomField === partsCustomFields[1].id){
 														if(partsCustomFieldItems[subindex].value.number !== null){
 															storage.setItem("partsUnitPrice"+index, partsCustomFieldItems[subindex].value.number);
 															console.log(storage.getItem("partsUnitPrice"+index));
-// 															console.log("set the parts unit-price");
-														} else { /*storage.setItem("partsUnitPrice"+index, null);*/ console.log("this is null");}
+														} else {console.log("this is null");}
 													} else { console.log("partsCustomFields error"); }
 													if(index===0 && subindex===1){
 														console.log("FINISHED THE PROCESS!!");
@@ -134,7 +136,6 @@ var onOrderBtnClick = function (t, ops){
 	// var commentJson = JSON.parse(commentRes.getContentText());
 	t.card( 'id', 'name', 'desc', 'attachments', 'customFieldItems', 'idList' )
 	.then( function( orderCard ){
-
 		Trello.get( `/cards/${orderCard.id}/board` )
 		.then( function (orderBoardInfo) {
 			storage.setItem("orderName", orderCard.name);
@@ -149,11 +150,11 @@ var onOrderBtnClick = function (t, ops){
 				// Lists[1].name = 'hoge'
 				storage.setItem("orderCustomer",listInfo.name);
 			});
-			Trello.get( `/boards/${orderBoardInfo.id}/customFields` )
+			var promise = Trello.get( `/boards/${orderBoardInfo.id}/customFields` )
 			.then( function (customFields) {
-				var subDeferred = Trello.get( `/cards/${orderCard.id}/customFieldItems` )
-				.done( function (customFieldItems){
-					var deferred = new $.Deferred();
+				var deferred = $.Deferred();
+				Trello.get( `/cards/${orderCard.id}/customFieldItems` )
+				.then( function (customFieldItems){
 					for(index=0; index<customFieldItems.length; index++){
 						// customFields[0].name = '記入者'
 						// customFields[1].name = '先方担当者'
@@ -162,43 +163,82 @@ var onOrderBtnClick = function (t, ops){
 						// customFields[4].name = '受注日'
 						if(customFieldItems[index].idCustomField === customFields[0].id){
 							storage.setItem("orderRepresentative", customFieldItems[index].value.text);
-							console.log("set the representative");
-						}	else if(customFieldItems[index].idCustomField === customFields[1].id){
+							console.log(customFieldItems[index].value.text);
+						} else if(customFieldItems[index].idCustomField === customFields[1].id){
 							storage.setItem("orderCustomerRepresentative", customFieldItems[index].value.text);
-							console.log("set the customer representative");
+							console.log(customFieldItems[index].value.text);
 						} else if(customFieldItems[index].idCustomField === customFields[2].id){
 							storage.setItem("orderTotalUnitPrice", customFieldItems[index].value.number);
-							console.log("set the order's total unit-price");
+							console.log(customFieldItems[index].value.number);
 						} else if(customFieldItems[index].idCustomField === customFields[3].id){
 							storage.setItem("orderTotalCost", customFieldItems[index].value.number);
-							console.log("set the order's total cost");
+							console.log(customFieldItems[index].value.number);
 						} else if (customFieldItems[index].idCustomField === customFields[4].id){
 							var date = customFieldItems[index].value.date.split('T');
-							console.log(date);
 							storage.setItem("dateReceivedOrder", date[0]);
-							console.log("set the date received order");
+							console.log(date[0]);
 						} else { console.log("CustomFields error"); }
 					}
-					deferred.resolve();
-					return deferred;
-				}).fail( function(errorMsg) {
-					console.log( errorMsg );
 				});
-
 				if( storage.getItem("numberOfProductAttachments")!==0 ){
 					for(index=orderCard.attachments.length-1; index>=0; index--){
-						//console.log(orderCard.attachments[index]);
-						console.log(orderCard.attachments[index].name);
-						storage.setItem("attachmentProductName"+index,orderCard.attachments[index].name)
+						var str = orderCard.attachments[index].url.split("/");
+						$.ajaxSetup({async: false});
+						$.getJSON("https://trello.com/1/cards/"+str[4]+"?key=b1cc5bee67e2cfc80d86fe30ad1d46bf&token=84f11f74eebf02e2c1e195f17f9015b7402d96fb149beac9d27786dc6e41071e", function(data){
+							var productCardId = data.id;
+							(function(index, deferred){
+								Trello.get( `/cards/${productCardId}/board` )
+								.then( function (productBoardInfo) {
+// 									console.log("layer1 index: "+index);
+									Trello.get( `/boards/${productBoardInfo.id}/customFields` )
+									.then( function (productCustomFields) {
+// 										console.log("layer2 index: "+index);
+										Trello.get( `/cards/${productCardId}/customFieldItems` )
+										.then( function (productCustomFieldItems){
+											console.log("layer3 index: "+index+"---------------");
+											console.log(orderCard.attachments[index]);
+											console.log(orderCard.attachments[index].url);
+											storage.setItem("attachmentProductName"+index,orderCard.attachments[index].name);
+											for(subindex=0; subindex<productCustomFieldItems.length; subindex++){
+												// productCustomFields[0].name = '原価'
+												// productCustomFields[1].name = '単価'
+												// productCustomFields[2].name = '数量'
+												if(productCustomFieldItems[subindex].idCustomField === productCustomFields[0].id){
+													if(productCustomFieldItems[subindex].value.number !== null){
+														storage.setItem("productCost"+index, productCustomFieldItems[subindex].value.number);
+														console.log(storage.getItem("productCost"+index));
+													} else { console.log("this is null"); }
+												} else if (productCustomFieldItems[subindex].idCustomField === productCustomFields[1].id){
+													if(productCustomFieldItems[subindex].value.number !== null){
+														storage.setItem("productUnitPrice"+index, productCustomFieldItems[subindex].value.number);
+														console.log(storage.getItem("productUnitPrice"+index));
+													} else {console.log("this is null");}
+												} else if (productCustomFieldItems[subindex].idCustomField === productCustomFields[2].id){
+													if(productCustomFieldItems[subindex].value.number !== null){
+														storage.setItem("numberOfProduct"+index, productCustomFieldItems[subindex].value.number);
+														console.log(storage.getItem("numberOfProduct"+index));
+													} else {console.log("this is null");}
+												} else { console.log("productCustomFields error"); }
+												if(index===0 && subindex===1){
+													console.log("FINISHED THE PROCESS!!");
+													deferred.resolve();
+												}
+											} // end of subindex
+										});
+									});
+								});
+							})(index, deferred);
+						}); // .getJSON
 					}
 				} else { console.log("No attachments!!"); }
-				//it works when subDeferred is done
-				subDeferred.done( function(){
-					window.open('docs/components/printOrderCard.html','_blank')
-				});
+				return deferred.promise();
+			});
+			promise.done( function(){
+				console.log("Done the deferred!!");
+				window.open('docs/components/printOrderCard.html','_blank')
 			});
 		});
-	});
+	}); // t.card
 };
 
 window.TrelloPowerUp.initialize( {
